@@ -1,0 +1,26 @@
+{
+  "name": "movie-series-billboard",
+  "version": "1.0.0",
+  "description": "Sitio web para visualizar informacion acerca de peliculas y series, realizando diversos tipos de filtros para las diversas busquedas. Se hace uso de la API de Movie DB para obtener las distintas informac iones de las peliculas y series mostradas en el sitio web.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iesusdavila/movie-series-billboard.git"
+  },
+  "keywords": [
+    "js",
+    "css",
+    "html",
+    "api",
+    "async"
+  ],
+  "author": "Iesus Davila <Iesus Davila>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iesusdavila/movie-series-billboard/issues"
+  },
+  "homepage": "https://github.com/iesusdavila/movie-series-billboard#readme"
+}
