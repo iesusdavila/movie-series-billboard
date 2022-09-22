@@ -50,7 +50,7 @@ h2 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
   /* color: var(--purple-dark-1); */
   font-weight: var(--font-weight-title2);
 }
@@ -223,23 +223,33 @@ input::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 88%;
 }
 
 .trendingPreview-btn {
+  width: 110px;
+  background-color: var(--color-2-background);
+  padding: 5px 20px;
   border-radius: 8px;
-  height: 32px;
-  width: 72px;
+  color: var(--color-letters);
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-text2);
 }
 
-.trendingCarousel h2 {
-  font-size: 26px;
+/* .trendingCarousel h2 {
   line-height: 38px;
   padding-bottom: 24px;
   opacity: 0.9;
   text-transform: uppercase;
   letter-spacing: 10px;
   text-align: center;
-}
+} */
 
 /*ESTRUCTURA DEL CARRUSEL DE FOTOS*/
 .trendingCarousel {
