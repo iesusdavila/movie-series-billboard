@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-letters: #dddddd;
+  --color-background: #222031;
+  --color-2-background: #30475e;
+  --color-figures: #f05454;
+
+  --font-family-titles: "Dosis", sans-serif;
+  --font-family-text: "Red Hat Display", sans-serif;
+  --font-weight-title1: 800;
+  --font-weight-title2: 700;
+  --font-weight-text1: 400;
+  --font-weight-text2: 500;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-letters);
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-text1);
+  font-size: 18px;
+  margin: 4px 0 0 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2 {
+  font-size: 24px;
+  color: var(--color-figures);
+  font-family: var(--font-family-titles);
+  font-weight: var(--font-weight-title1);
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  font-size: 18px;
+  /* color: var(--purple-dark-1); */
+  font-weight: var(--font-weight-title2);
+}
+
+h3 {
+  /* color: var(--purple-dark-2); */
+  font-weight: var(--font-weight-text2);
+  font-size: 16px;
+}
+
+/*--------------------------------------------------*/
+/*SECCION DEL HEADER*/
+
+#header {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+}
+
+/*HEADER LOGO AND TITLE*/
+.header-logo-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.header-logo-title .header-icon {
+  width: 40px;
+}
+
+/*HEADER INPUT AND BUTTON*/
+
+#searchForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+#searchForm input {
+  height: 48px;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: var(--color-2-background);
+  border: none;
+  font-size: 18px;
+  padding-left: 16px;
+}
+
+input::placeholder {
+  color: var(--color-letters);
+  font-family: var(--font-family-text);
+}
+
+button {
+  width: 56px;
+  height: 48px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: none;
+  color: black;
+  font-weight: var(--font-weight-text2);
+  font-size: 14px;
+  cursor: pointer;
+  background-color: var(--color-2-background);
+}
+
+/*HEADER LIST OF THE OPTIONS*/
+
+.header-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
