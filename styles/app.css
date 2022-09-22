@@ -206,6 +206,8 @@ input::placeholder {
   background-color: var(--color-2-background);
   padding: 5px 20px;
   border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
 }
 
 .category-container:nth-child(3n) {
@@ -214,6 +216,13 @@ input::placeholder {
 
 .category-container:nth-child(2n) {
   background-color: var(--color-figures);
+}
+
+.category-container:hover {
+  color: var(--color-2-background);
+  background-color: var(--color-title);
+  box-shadow: 0px 0px 4px 2px var(--color-2-figures);
+  transform: scale(1.05);
 }
 
 /*--------------------------------------------------*/

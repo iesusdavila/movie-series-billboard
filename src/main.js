@@ -33,21 +33,7 @@ async function getCategoriesMovies() {
   );
   categoriesPreview_list.innerHTML = "";
 
-  categories.forEach((category) => {
-    const category_container = document.createElement("div");
-    category_container.classList.add("category-container");
-
-    const category_title = document.createElement("h3");
-    category_title.setAttribute("id", "id" + category.id);
-    category_title.classList.add("category-title");
-    category_title.innerText = category.name;
-    category_title.addEventListener("click", () => {
-      location.hash = `#category=${category.id}-${category.name}`;
-    });
-
-    category_container.appendChild(category_title);
-    categoriesPreview_list.appendChild(category_container);
-  });
+  createContainerCategories(categoriesPreview_list, categories);
 }
 
 async function getTrendingMoviesPreview() {
@@ -61,7 +47,29 @@ async function getTrendingMoviesPreview() {
 
   trendingPreview_movieList.innerHTML = "";
 
-  movies.forEach((movie) => {
+  createContainerMovies(trendingPreview_movieList, movies);
+}
+
+function createContainerCategories(parentTag, arrayCategories) {
+  arrayCategories.forEach((category) => {
+    const category_container = document.createElement("div");
+    category_container.classList.add("category-container");
+
+    const category_title = document.createElement("h3");
+    category_title.setAttribute("id", "id" + category.id);
+    category_title.classList.add("category-title");
+    category_title.innerText = category.name;
+    category_title.addEventListener("click", () => {
+      location.hash = `#category=${category.id}-${category.name}`;
+    });
+
+    category_container.appendChild(category_title);
+    parentTag.appendChild(category_container);
+  });
+}
+
+function createContainerMovies(parentTag, arrayMovies) {
+  arrayMovies.forEach((movie) => {
     const movie_container = document.createElement("div");
     movie_container.classList.add("movie-container");
     movie_container.addEventListener("click", () => {
@@ -79,7 +87,7 @@ async function getTrendingMoviesPreview() {
     // observer.observe(imageMovie);
 
     movie_container.appendChild(imageMovie);
-    trendingPreview_movieList.appendChild(movie_container);
+    parentTag.appendChild(movie_container);
   });
 }
 
