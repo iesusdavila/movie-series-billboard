@@ -3,10 +3,16 @@
 }
 
 :root {
-  --color-letters: #dddddd;
-  --color-background: #222031;
-  --color-2-background: #30475e;
-  --color-figures: #f05454;
+  /* --color-letters: #dddddd; d1d1d1 */
+  /* --color-background: #222031; 090a0b */
+  /* --color-2-background: #30475e; 23262f */
+  /*444752*/
+  --color-title: #f05454;
+  --color-letters: #d1d1d1;
+  --color-background: #090a0b;
+  --color-2-background: #23262f;
+  --color-figures: #444752;
+  --color-2-figures: #293146;
 
   --font-family-titles: "Dosis", sans-serif;
   --font-family-text: "Red Hat Display", sans-serif;
@@ -35,8 +41,8 @@ h3 {
 
 h1,
 h2 {
-  font-size: 24px;
-  color: var(--color-figures);
+  font-size: 30px;
+  color: var(--color-title);
   font-family: var(--font-family-titles);
   font-weight: var(--font-weight-title1);
   margin: 0;
@@ -44,7 +50,7 @@ h2 {
 }
 
 h2 {
-  font-size: 18px;
+  font-size: 24px;
   /* color: var(--purple-dark-1); */
   font-weight: var(--font-weight-title2);
 }
@@ -52,12 +58,13 @@ h2 {
 h3 {
   /* color: var(--purple-dark-2); */
   font-weight: var(--font-weight-text2);
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /*--------------------------------------------------*/
 /*SECCION DEL HEADER*/
 
+/*ESTRUCTURA DEL HEADER EN GENERAL*/
 #header {
   margin-top: 20px;
   display: flex;
@@ -131,3 +138,40 @@ button {
   flex-wrap: wrap;
   gap: 15px;
 }
+
+/*--------------------------------------------------*/
+/*SECCION DE LAS CATEGORIAS*/
+/*ESTRUCTURA DE LISTAS DE CATEGORIAS EN GENERAL*/
+#categoriesPreview {
+  margin-top: 20px;
+}
+
+/*LISTA DE CATEGORIAS*/
+/*ESTRUCTURA DE LA LISTA EN GENERAL*/
+.categoriesPreview-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 8px;
+  margin: 0px 135px;
+  padding: 0 20px;
+}
+
+/*ESTRUCTURA DE CADA CATEGORIA POR SEPARADO*/
+.category-container {
+  background-color: var(--color-2-background);
+  padding: 5px 20px;
+  border-radius: 8px;
+}
+
+.category-container:nth-child(3n) {
+  background-color: var(--color-2-figures);
+}
+
+.category-container:nth-child(2n) {
+  background-color: var(--color-figures);
+}
+
+/*--------------------------------------------------*/
