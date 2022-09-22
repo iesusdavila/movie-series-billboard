@@ -114,7 +114,7 @@ input::placeholder {
   font-family: var(--font-family-text);
 }
 
-button {
+#searchForm button {
   width: 56px;
   height: 48px;
   border-top-right-radius: 8px;
@@ -127,7 +127,7 @@ button {
   background-color: var(--color-2-background);
 }
 
-/*HEADER LIST OF THE OPTIONS*/
+/*HEADER LISTA DE OPCIONES*/
 
 .header-list {
   list-style: none;
@@ -137,6 +137,48 @@ button {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 15px;
+}
+
+.header-list li {
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: relative;
+  padding: 5px;
+}
+
+/*DISEÑO DE LA LISTA DE OPCIONES*/
+.header-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: var(--color-title);
+  transition: 0.5s ease;
+}
+
+.header-list li:hover::before {
+  width: 100%;
+}
+
+.header-list li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0;
+  width: 100%;
+  background-color: var(--color-title);
+  transition: 0.4s ease;
+  z-index: -1;
+}
+
+.header-list li:hover::after {
+  border-radius: 8px 8px 0px 0px;
+  height: 100%;
+  transition-delay: 0.5s;
 }
 
 /*--------------------------------------------------*/
@@ -175,3 +217,104 @@ button {
 }
 
 /*--------------------------------------------------*/
+/*ESTRUCTURA DE LISTAS DE PELICULAS TRENDING EN GENERAL*/
+/*ESTRUCTURA DE LA CABECERA DE LAS PELICULAS TRENDING*/
+.trendingPreview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trendingPreview-btn {
+  border-radius: 8px;
+  height: 32px;
+  width: 72px;
+}
+
+.trendingCarousel h2 {
+  font-size: 26px;
+  line-height: 38px;
+  padding-bottom: 24px;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  text-align: center;
+}
+
+/*ESTRUCTURA DEL CARRUSEL DE FOTOS*/
+.trendingCarousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 390px;
+  margin: 0px auto;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+/*ESTRUCTURA DE LAS IMAGENES EN EL CARRUSEL*/
+.trendingPreview-movieList {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+
+.movie-container {
+  position: relative;
+  width: 275px;
+  padding: 0 18px;
+  float: left;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+}
+
+.movie-container .movie-img {
+  object-fit: cover;
+  height: 360px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s ease-in-out;
+}
+
+.movie-container .movie-img:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+
+/*ESTRUCTURA DE LOS BOTONES EN EL CARRUSEL*/
+
+.trendingCarousel button {
+  border-radius: 25px;
+  background-color: var(--color-figures);
+  position: absolute;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  box-shadow: 0 2px 10px 0 rgba(32, 195, 29, 0.15);
+  border: 0;
+  cursor: pointer;
+}
+
+.trendingCarousel button:focus {
+  outline: 0;
+}
+
+.trendingCarousel button img {
+  width: 25px;
+  height: 25px;
+}
+
+.arrowLeft {
+  left: 0px;
+}
+.arrowRight {
+  right: 0px;
+}
