@@ -226,9 +226,11 @@ input::placeholder {
 }
 
 /*--------------------------------------------------*/
-/*ESTRUCTURA DE LISTAS DE PELICULAS TRENDING EN GENERAL*/
-/*ESTRUCTURA DE LA CABECERA DE LAS PELICULAS TRENDING*/
-.trendingPreview-header {
+/*ESTRUCTURA DE LISTAS DE PELICULAS TRENDING Y TOP RATED EN GENERAL*/
+/*ESTRUCTURA DE LA CABECERA ANTES DEL CARRUSEL*/
+.trendingPreview-header,
+.topRatedPreview-header,
+.popularPreview-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -238,12 +240,14 @@ input::placeholder {
   max-width: 88%;
 }
 
-.trendingPreview-btn {
+.trendingPreview-btn,
+.topRatedPreview-btn,
+.popularPreview-btn {
   width: 110px;
-  background-color: var(--color-2-background);
+  background-color: var(--color-title);
   padding: 5px 20px;
   border-radius: 8px;
-  color: var(--color-letters);
+  color: var(--color-background);
   font-size: 18px;
   border: none;
   cursor: pointer;
@@ -251,17 +255,10 @@ input::placeholder {
   font-weight: var(--font-weight-text2);
 }
 
-/* .trendingCarousel h2 {
-  line-height: 38px;
-  padding-bottom: 24px;
-  opacity: 0.9;
-  text-transform: uppercase;
-  letter-spacing: 10px;
-  text-align: center;
-} */
-
 /*ESTRUCTURA DEL CARRUSEL DE FOTOS*/
-.trendingCarousel {
+.trendingCarousel,
+.topRatedCarousel,
+.popularCarousel {
   position: relative;
   display: flex;
   align-items: center;
@@ -273,7 +270,9 @@ input::placeholder {
 }
 
 /*ESTRUCTURA DE LAS IMAGENES EN EL CARRUSEL*/
-.trendingPreview-movieList {
+.trendingPreview-movieList,
+.topRatedCarousel-movieList,
+.popularPreview-movieList {
   position: relative;
   top: 0;
   left: 0;
@@ -288,8 +287,10 @@ input::placeholder {
   padding: 0 18px;
   float: left;
   box-sizing: border-box;
+  cursor: pointer;
   display: flex;
   height: 100%;
+  transition: 0.3s ease-in-out;
 }
 
 .movie-container .movie-img {
@@ -302,14 +303,36 @@ input::placeholder {
   transition: 0.3s ease-in-out;
 }
 
-.movie-container .movie-img:hover {
+.movie-position {
+  position: absolute;
+  top: 0;
+  right: 18px;
+  color: var(--color-background);
+  background-color: var(--color-title);
+  border-radius: 0 8px 0 8px;
+  padding: 3px 9px;
+}
+
+.movie-star {
+  position: absolute;
+  bottom: 0;
+  right: 18px;
+  color: var(--color-background);
+  background-color: var(--color-title);
+  border-radius: 20px 0 8px 0;
+  padding: 3px 9px;
+}
+
+.movie-container:hover {
   opacity: 0.85;
   transform: scale(1.05);
 }
 
 /*ESTRUCTURA DE LOS BOTONES EN EL CARRUSEL*/
 
-.trendingCarousel button {
+.trendingCarousel button,
+.topRatedCarousel button,
+.popularCarousel button {
   border-radius: 25px;
   background-color: var(--color-figures);
   position: absolute;
@@ -322,11 +345,15 @@ input::placeholder {
   cursor: pointer;
 }
 
-.trendingCarousel button:focus {
+.trendingCarousel button:focus,
+.topRatedCarousel button:focus,
+.popularCarousel button:focus {
   outline: 0;
 }
 
-.trendingCarousel button img {
+.trendingCarousel button img,
+.topRatedCarousel button img,
+.popularCarousel button img {
   width: 25px;
   height: 25px;
 }

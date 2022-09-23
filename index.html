@@ -56,7 +56,7 @@
     </div>
 
     <div class="trendingCarousel">
-      <button class="arrowLeft">
+      <button class="arrowLeft" id="trendArrowLeft">
         <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
       </button>
       <article class="trendingPreview-movieList">
@@ -65,15 +65,125 @@
         <div class="movie-container movie-container--loading">
           <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
             alt="Nombre de la película" />
-          <!-- <h3>Upgrade</h3>
-          <h3>Duracion: 1 hora 40 minutos</h3> -->
+          <h3 class="movie-position">#1</h3>
+          <h3 class="movie-star">6.5⭐</h3>
         </div>
         <div class="movie-container movie-container--loading">
           <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
             alt="Nombre de la película" />
         </div>
       </article>
-      <button class="arrowRight">
+      <button class="arrowRight" id="trendArrowRight">
+        <img src="./public/right-arrow.png" alt="Flecha a la derecha" class="arrowRight-image">
+      </button>
+    </div>
+
+  </section>
+
+  <section id="topRatedPreview" class="topRatedPreview-container">
+    <div class="topRatedPreview-header">
+      <h2 class="topRatedPreview-title">Mejores votadas</h2>
+      <button class="topRatedPreview-btn">Ver más</button>
+    </div>
+
+    <div class="topRatedCarousel">
+      <button class="arrowLeft" id="topRatArrowLeft">
+        <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
+      </button>
+      <article class="topRatedCarousel-movieList">
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">1</h3>
+          <h3 class="movie-star">⭐6.5</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">1</h3>
+          <h3 class="movie-star">⭐6.5</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">1</h3>
+          <h3 class="movie-star">⭐6.5</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">1</h3>
+          <h3 class="movie-star">⭐6.5</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">1</h3>
+          <h3 class="movie-star">⭐6.5</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">1</h3>
+          <h3 class="movie-star">⭐6.5</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+      </article>
+      <button class="arrowRight" id="topRatArrowRight">
+        <img src="./public/right-arrow.png" alt="Flecha a la derecha" class="arrowRight-image">
+      </button>
+    </div>
+
+  </section>
+
+  <section id="popularPreview" class="popularPreview-container">
+    <div class="popularPreview-header">
+      <h2 class="popularPreview-title">Mas populares</h2>
+      <button class="popularPreview-btn">Ver más</button>
+    </div>
+
+    <div class="popularCarousel">
+      <button class="arrowLeft" id="popularArrowLeft">
+        <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
+      </button>
+      <article class="popularPreview-movieList">
+        <!-- <div class="movie-container movie-container--loading">
+          </div> -->
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+          <h3 class="movie-position">#1</h3>
+          <h3 class="movie-star">6.5⭐</h3>
+        </div>
+        <div class="movie-container movie-container--loading">
+          <img src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg" class="movie-img"
+            alt="Nombre de la película" />
+        </div>
+      </article>
+      <button class="arrowRight" id="popularArrowRight">
         <img src="./public/right-arrow.png" alt="Flecha a la derecha" class="arrowRight-image">
       </button>
     </div>
@@ -82,7 +192,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="./src/secrets.js"></script>
-  <!-- <script src="./src/node.js"></script> -->
+  <script src="./src/node.js"></script>
   <script src="./src/main.js"></script>
   <!-- <script src="./src/navigation.js"></script> -->
 </body>

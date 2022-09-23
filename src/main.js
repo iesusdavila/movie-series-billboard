@@ -9,19 +9,24 @@ const api = axios.create({
   },
 });
 
-const arrowLeft = document.querySelector(".arrowLeft");
-const arrowRight = document.querySelector(".arrowRight");
-const trendingPreview = document.querySelector(".trendingPreview-movieList");
-const trendingCarousel = document.querySelector(".trendingCarousel");
-const movieContainer = document.querySelectorAll(
-  ".trendingPreview-movieList .movie-container"
-);
+const trendMovContWidth = trenMovieContainer[0].offsetWidth;
+const topMovContWidth = topMovieContainer[0].offsetWidth;
+const popularMovContWidth = popularMovieContainer[0].offsetWidth;
 
-const movieContainerWidth = movieContainer[0].offsetWidth;
-console.log(movieContainer);
+trenArrowLeft.onclick = () =>
+  Move(1, trendingPreview, trendingCarousel, trendMovContWidth);
+trenArrowRight.onclick = () =>
+  Move(2, trendingPreview, trendingCarousel, trendMovContWidth);
 
-arrowLeft.onclick = () => Move(1);
-arrowRight.onclick = () => Move(2);
+topArrowLeft.onclick = () =>
+  Move(1, topRatedPreview, topRatedCarousel, topMovContWidth);
+topArrowRight.onclick = () =>
+  Move(2, topRatedPreview, topRatedCarousel, topMovContWidth);
+
+popularArrowLeft.onclick = () =>
+  Move(1, popularPreview, popularCarousel, popularMovContWidth);
+popularArrowRight.onclick = () =>
+  Move(2, popularPreview, popularCarousel, popularMovContWidth);
 
 async function getCategoriesMovies() {
   const { data } = await api("genre/movie/list");
@@ -50,6 +55,34 @@ async function getTrendingMoviesPreview() {
   createContainerMovies(trendingPreview_movieList, movies);
 }
 
+async function getTopRatedMoviesPreview() {
+  const { data } = await api("/movie/top_rated");
+
+  const movies = data.results;
+
+  const topRatedPreview_movieList = document.querySelector(
+    ".topRatedCarousel-movieList"
+  );
+
+  topRatedPreview_movieList.innerHTML = "";
+
+  createContainerMovies(topRatedPreview_movieList, movies);
+}
+
+async function getPopularMoviesPreview() {
+  const { data } = await api("/movie/popular");
+
+  const movies = data.results;
+
+  const popularPreview_movieList = document.querySelector(
+    ".popularPreview-movieList"
+  );
+
+  popularPreview_movieList.innerHTML = "";
+
+  createContainerMovies(popularPreview_movieList, movies);
+}
+
 function createContainerCategories(parentTag, arrayCategories) {
   arrayCategories.forEach((category) => {
     const category_container = document.createElement("div");
@@ -69,7 +102,7 @@ function createContainerCategories(parentTag, arrayCategories) {
 }
 
 function createContainerMovies(parentTag, arrayMovies) {
-  arrayMovies.forEach((movie) => {
+  arrayMovies.forEach((movie, index) => {
     const movie_container = document.createElement("div");
     movie_container.classList.add("movie-container");
     movie_container.addEventListener("click", () => {
@@ -84,38 +117,42 @@ function createContainerMovies(parentTag, arrayMovies) {
       "https://image.tmdb.org/t/p/w300/" + movie.poster_path
     );
 
+    const h3Pos = document.createElement("h3");
+    h3Pos.classList.add("movie-position");
+    h3Pos.innerText = index + 1;
+
+    const h3Star = document.createElement("h3");
+    h3Star.classList.add("movie-star");
+    h3Star.innerText = "⭐" + parseFloat(movie.vote_average).toFixed(1);
+
     // observer.observe(imageMovie);
 
     movie_container.appendChild(imageMovie);
+    movie_container.appendChild(h3Pos);
+    movie_container.appendChild(h3Star);
     parentTag.appendChild(movie_container);
   });
 }
 
-function Move(value) {
-  const trendingPreviewWidth = trendingPreview.offsetWidth;
-  const trendingCarouselWidth = trendingCarousel.offsetWidth;
+function Move(direc, sectionPreview, sectionCarousel, movieContainerWidth) {
+  const sectionPreviewWidth = sectionPreview.offsetWidth;
+  const sectionCarouselWidth = sectionCarousel.offsetWidth;
 
-  trendingPreview.style.left == ""
-    ? (leftPosition = trendingPreview.style.left = 0)
-    : (leftPosition = parseFloat(trendingPreview.style.left.slice(0, -2) * -1));
+  sectionPreview.style.left == ""
+    ? (leftPosition = sectionPreview.style.left = 0)
+    : (leftPosition = parseFloat(sectionPreview.style.left.slice(0, -2) * -1));
 
-  console.log(trendingPreview.style.left.slice(0, -2) * -1);
-  console.log(leftPosition);
-  console.log({
-    trendingPreviewWidth,
-    trendingCarouselWidth,
-  });
-
-  const rightLimit =
-    leftPosition < trendingPreviewWidth - trendingCarouselWidth;
+  const rightLimit = leftPosition < sectionPreviewWidth - sectionCarouselWidth;
   const leftLimit = leftPosition > 0;
 
-  if (rightLimit && value == 2) {
-    trendingPreview.style.left = `${
+  if (rightLimit && direc == 2) {
+    console.log("igual a 2");
+    sectionPreview.style.left = `${
       -1 * (leftPosition + movieContainerWidth)
     }px`;
-  } else if (leftLimit && value == 1) {
-    trendingPreview.style.left = `${
+  } else if (leftLimit && direc == 1) {
+    console.log("igual a 1");
+    sectionPreview.style.left = `${
       -1 * (leftPosition - movieContainerWidth)
     }px`;
   } else if (!rightLimit) {
@@ -125,3 +162,5 @@ function Move(value) {
 
 getCategoriesMovies();
 getTrendingMoviesPreview();
+getTopRatedMoviesPreview();
+getPopularMoviesPreview();
