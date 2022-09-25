@@ -1,3 +1,20 @@
+const header = document.getElementById("header");
+const header_logo_title = document.querySelector(".header-logo-title");
+const header_icon = document.querySelector(".header-icon");
+const header_title = document.querySelector(".header-title");
+const searchForm = document.querySelector("#searchForm");
+const searchBtn = document.querySelector("#searchBtn");
+const header_list = document.querySelector(".header-list");
+
+const categoriesPreview = document.getElementById("categoriesPreview");
+
+const trendingMoviesPreview = document.getElementById("trendingPreview");
+const trendingPreview_header = document.querySelector(
+  ".trendingPreview-header"
+);
+const trendingPreview_title = document.querySelector(".trendingPreview-title");
+// const trendingPreview_btn = document.querySelector(".trendingPreview-btn");
+const trendingBtn = document.querySelector(".trendingPreview-btn");
 const trenArrowLeft = document.querySelector("#trendArrowLeft");
 const trenArrowRight = document.querySelector("#trendArrowRight");
 const trendingPreview = document.querySelector(".trendingPreview-movieList");
@@ -6,6 +23,13 @@ const trenMovieContainer = document.querySelectorAll(
   ".trendingPreview-movieList .movie-container"
 );
 
+const topRatedMoviesPreview = document.getElementById("topRatedPreview");
+const topRatedPreview_header = document.querySelector(
+  ".topRatedPreview-header"
+);
+const topRatedPreview_title = document.querySelector(".topRatedPreview-title");
+// const topRatedPreview_btn = document.querySelector(".topRatedPreview-btn");
+const topRatedBtn = document.querySelector(".topRatedPreview-btn");
 const topArrowLeft = document.querySelector("#topRatArrowLeft");
 const topArrowRight = document.querySelector("#topRatArrowRight");
 const topRatedPreview = document.querySelector(".topRatedCarousel-movieList");
@@ -14,6 +38,11 @@ const topMovieContainer = document.querySelectorAll(
   ".topRatedCarousel-movieList .movie-container"
 );
 
+const popularMoviesPreview = document.getElementById("popularPreview");
+const popularPreview_header = document.querySelector(".popularPreview-header");
+const popularPreview_title = document.querySelector(".popularPreview-title");
+// const popularPreview_btn = document.querySelector(".topRatedPreview-btn");
+const popularBtn = document.querySelector(".popularPreview-btn");
 const popularArrowLeft = document.querySelector("#popularArrowLeft");
 const popularArrowRight = document.querySelector("#popularArrowRight");
 const popularPreview = document.querySelector(".popularPreview-movieList");
@@ -22,6 +51,15 @@ const popularMovieContainer = document.querySelectorAll(
   ".popularPreview-movieList .movie-container"
 );
 
+const providersMoviesPreview = document.getElementById("providersPreview");
+const providersPreview_header = document.querySelector(
+  ".providersPreview-header"
+);
+const providersPreview_title = document.querySelector(
+  ".providersPreview-title"
+);
+// const providersPreview_btn = document.querySelector(".topRatedPreview-btn");
+const providersBtn = document.querySelector(".providersPreview-btn");
 const providersArrowLeft = document.querySelector("#providersArrowLeft");
 const providersArrowRight = document.querySelector("#providersArrowRight");
 const providersPreview = document.querySelector(".providersPreview-movieList");

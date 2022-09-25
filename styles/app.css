@@ -379,3 +379,7 @@ input::placeholder {
 .arrowRight {
   right: 0px;
 }
+
+.inactive {
+  display: none;
+}

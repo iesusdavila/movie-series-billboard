@@ -210,9 +210,3 @@ function Move(direc, sectionPreview, sectionCarousel, movieContainerWidth) {
     console.log("Borrar la flecha");
   }
 }
-
-getCategoriesMovies();
-getTrendingMoviesPreview();
-getTopRatedMoviesPreview();
-getPopularMoviesPreview();
-getProvidersMoviesPreview();
