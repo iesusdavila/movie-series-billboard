@@ -12,6 +12,7 @@ const api = axios.create({
 const trendMovContWidth = trenMovieContainer[0].offsetWidth;
 const topMovContWidth = topMovieContainer[0].offsetWidth;
 const popularMovContWidth = popularMovieContainer[0].offsetWidth;
+const providerMovContWidth = providersMovieContainer[0].offsetWidth;
 
 trenArrowLeft.onclick = () =>
   Move(1, trendingPreview, trendingCarousel, trendMovContWidth);
@@ -27,6 +28,11 @@ popularArrowLeft.onclick = () =>
   Move(1, popularPreview, popularCarousel, popularMovContWidth);
 popularArrowRight.onclick = () =>
   Move(2, popularPreview, popularCarousel, popularMovContWidth);
+
+providersArrowLeft.onclick = () =>
+  Move(1, providersPreview, providersCarousel, providerMovContWidth);
+providersArrowRight.onclick = () =>
+  Move(2, providersPreview, providersCarousel, providerMovContWidth);
 
 async function getCategoriesMovies() {
   const { data } = await api("genre/movie/list");
@@ -83,6 +89,20 @@ async function getPopularMoviesPreview() {
   createContainerMovies(popularPreview_movieList, movies);
 }
 
+async function getProvidersMoviesPreview() {
+  const { data } = await api("/watch/providers/movie");
+
+  const movies = data.results;
+
+  const providersPreview_movieList = document.querySelector(
+    ".providersPreview-movieList"
+  );
+
+  providersPreview_movieList.innerHTML = "";
+
+  createContainerProvidersMovies(providersPreview_movieList, movies);
+}
+
 function createContainerCategories(parentTag, arrayCategories) {
   arrayCategories.forEach((category) => {
     const category_container = document.createElement("div");
@@ -134,6 +154,37 @@ function createContainerMovies(parentTag, arrayMovies) {
   });
 }
 
+function createContainerProvidersMovies(parentTag, arrayProviders) {
+  arrayProviders.forEach((movie, index) => {
+    if (index < 20) {
+      const movie_container = document.createElement("div");
+      movie_container.classList.add("movie-container");
+      movie_container.addEventListener("click", () => {
+        location.hash = "#movie=" + movie.id;
+      });
+
+      const imageMovie = document.createElement("img");
+      imageMovie.classList.add("movie-img");
+      imageMovie.alt = movie.provider_name;
+      imageMovie.setAttribute(
+        "src",
+        "https://image.tmdb.org/t/p/w300/" + movie.logo_path
+      );
+
+      const h3Pos = document.createElement("h3");
+      h3Pos.classList.add("movie-star");
+      h3Pos.innerText = movie.provider_name;
+
+      // observer.observe(imageMovie);
+
+      console.log(imageMovie.alt);
+      movie_container.appendChild(imageMovie);
+      movie_container.appendChild(h3Pos);
+      parentTag.appendChild(movie_container);
+    }
+  });
+}
+
 function Move(direc, sectionPreview, sectionCarousel, movieContainerWidth) {
   const sectionPreviewWidth = sectionPreview.offsetWidth;
   const sectionCarouselWidth = sectionCarousel.offsetWidth;
@@ -164,3 +215,4 @@ getCategoriesMovies();
 getTrendingMoviesPreview();
 getTopRatedMoviesPreview();
 getPopularMoviesPreview();
+getProvidersMoviesPreview();

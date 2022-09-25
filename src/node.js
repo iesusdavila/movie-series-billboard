@@ -21,3 +21,11 @@ const popularCarousel = document.querySelector(".popularCarousel");
 const popularMovieContainer = document.querySelectorAll(
   ".popularPreview-movieList .movie-container"
 );
+
+const providersArrowLeft = document.querySelector("#providersArrowLeft");
+const providersArrowRight = document.querySelector("#providersArrowRight");
+const providersPreview = document.querySelector(".providersPreview-movieList");
+const providersCarousel = document.querySelector(".providersCarousel");
+const providersMovieContainer = document.querySelectorAll(
+  ".providersPreview-movieList .movie-container"
+);

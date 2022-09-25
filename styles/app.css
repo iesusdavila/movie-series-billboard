@@ -226,11 +226,12 @@ input::placeholder {
 }
 
 /*--------------------------------------------------*/
-/*ESTRUCTURA DE LISTAS DE PELICULAS TRENDING Y TOP RATED EN GENERAL*/
+/*ESTRUCTURA DE LISTAS DE PELICULAS TRENDING, TOP RATED, POPULAR Y PROVEEDORES EN GENERAL*/
 /*ESTRUCTURA DE LA CABECERA ANTES DEL CARRUSEL*/
 .trendingPreview-header,
 .topRatedPreview-header,
-.popularPreview-header {
+.popularPreview-header,
+.providersPreview-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -242,7 +243,8 @@ input::placeholder {
 
 .trendingPreview-btn,
 .topRatedPreview-btn,
-.popularPreview-btn {
+.popularPreview-btn,
+.providersPreview-btn {
   width: 110px;
   background-color: var(--color-title);
   padding: 5px 20px;
@@ -258,7 +260,8 @@ input::placeholder {
 /*ESTRUCTURA DEL CARRUSEL DE FOTOS*/
 .trendingCarousel,
 .topRatedCarousel,
-.popularCarousel {
+.popularCarousel,
+.providersCarousel {
   position: relative;
   display: flex;
   align-items: center;
@@ -269,10 +272,15 @@ input::placeholder {
   overflow: hidden;
 }
 
+.providersCarousel {
+  height: 270px;
+}
+
 /*ESTRUCTURA DE LAS IMAGENES EN EL CARRUSEL*/
 .trendingPreview-movieList,
 .topRatedCarousel-movieList,
-.popularPreview-movieList {
+.popularPreview-movieList,
+.providersPreview-movieList {
   position: relative;
   top: 0;
   left: 0;
@@ -301,6 +309,10 @@ input::placeholder {
   border-radius: 8px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
   transition: 0.3s ease-in-out;
+}
+
+.providersPreview-movieList .movie-img {
+  height: 230px;
 }
 
 .movie-position {
@@ -332,7 +344,8 @@ input::placeholder {
 
 .trendingCarousel button,
 .topRatedCarousel button,
-.popularCarousel button {
+.popularCarousel button,
+.providersCarousel button {
   border-radius: 25px;
   background-color: var(--color-figures);
   position: absolute;
@@ -347,13 +360,15 @@ input::placeholder {
 
 .trendingCarousel button:focus,
 .topRatedCarousel button:focus,
-.popularCarousel button:focus {
+.popularCarousel button:focus,
+.providersCarousel button:focus {
   outline: 0;
 }
 
 .trendingCarousel button img,
 .topRatedCarousel button img,
-.popularCarousel button img {
+.popularCarousel button img,
+.providersCarousel button img {
   width: 25px;
   height: 25px;
 }
