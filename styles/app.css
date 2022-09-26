@@ -193,7 +193,7 @@ input::placeholder {
 .categoriesPreview-list {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   flex-wrap: wrap;
   flex-direction: row;
   gap: 8px;
@@ -378,6 +378,28 @@ input::placeholder {
 }
 .arrowRight {
   right: 0px;
+}
+
+/*--------------------------------------------------*/
+/*ESTRUCTURA GENERICA PARA MOSTRAR LAS PELICULAS EN GENERAL*/
+/*ESTRUCTURA DE LA CABECERA*/
+
+.genericList-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/*LOS OTROS ATRIBUTOS DE .movie-container YA FUERON ESCRITOS PREVIAMENTE*/
+.genericList-container .movie-container {
+  width: 285px;
+  margin-bottom: 15px;
+}
+
+/*LOS OTROS ATRIBUTOS DE .movie-img YA FUERON ESCRITOS PREVIAMENTE*/
+.genericList-container .movie-img {
+  height: 370px;
 }
 
 .inactive {

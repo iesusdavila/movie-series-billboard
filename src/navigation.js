@@ -1,3 +1,7 @@
+header_list_home.addEventListener("click", () => {
+  location.hash = "#home";
+});
+
 trendingBtn.addEventListener("click", () => {
   location.hash = "#trends";
 });
@@ -25,6 +29,8 @@ function navigator() {
   }*/
   if (location.hash.startsWith("#trends")) {
     trendsPage();
+  } else if (location.hash.startsWith("#home")) {
+    homePage();
   } else if (location.hash.startsWith("#topRated")) {
     topRatedPage();
   } else if (location.hash.startsWith("#popular")) {
@@ -63,6 +69,7 @@ function homePage() {
   providersMoviesPreview.classList.remove("inactive");
   providersBtn.classList.remove("inactive");
   providersCarousel.classList.remove("inactive");
+  genericSection.classList.add("inactive");
 
   getCategoriesMovies();
   getTrendingMoviesPreview();
@@ -78,8 +85,9 @@ function trendsPage() {
   topRatedMoviesPreview.classList.add("inactive");
   popularMoviesPreview.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
+  genericSection.classList.remove("inactive");
 
-  // getTrendingMovies();
+  getTrendingMovies();
 
   // infiniteScroll = getPaginatedTrendingMovies;
 }

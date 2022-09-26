@@ -61,6 +61,39 @@ async function getTrendingMoviesPreview() {
   createContainerMovies(trendingPreview_movieList, movies);
 }
 
+async function getTrendingMovies() {
+  const { data } = await api("trending/movie/day");
+  const movies = data.results;
+
+  console.log(movies);
+
+  // pageMax = data.total_pages;
+  // console.log(pageMax);
+
+  genericSection.innerHTML = "";
+
+  movies.forEach((movie) => {
+    const movie_container = document.createElement("div");
+    movie_container.classList.add("movie-container");
+    movie_container.addEventListener("click", () => {
+      location.hash = "#movie=" + movie.id;
+    });
+
+    const imageMovie = document.createElement("img");
+    imageMovie.classList.add("movie-img");
+    imageMovie.alt = movie.title;
+    imageMovie.setAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w300/" + movie.poster_path
+    );
+
+    // observer.observe(imageMovie);
+
+    movie_container.appendChild(imageMovie);
+    genericSection.appendChild(movie_container);
+  });
+}
+
 async function getTopRatedMoviesPreview() {
   const { data } = await api("/movie/top_rated");
 

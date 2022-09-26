@@ -1,3 +1,4 @@
+/*HEADER-TODOS LOS ELEMENTOS*/
 const header = document.getElementById("header");
 const header_logo_title = document.querySelector(".header-logo-title");
 const header_icon = document.querySelector(".header-icon");
@@ -5,9 +6,17 @@ const header_title = document.querySelector(".header-title");
 const searchForm = document.querySelector("#searchForm");
 const searchBtn = document.querySelector("#searchBtn");
 const header_list = document.querySelector(".header-list");
+const header_list_home = document.querySelector(".header-list--home");
+const header_list_movies = document.querySelector(".header-list--movies");
+const header_list_series = document.querySelector(".header-list--series");
+const header_list_information = document.querySelector(
+  ".header-list--information"
+);
 
+/*CATEGORIAS MOVIES - TODOS LOS ELEMENTOS*/
 const categoriesPreview = document.getElementById("categoriesPreview");
 
+/*TRENDING PREVIEW MOVIES - TODOS LOS ELEMENTOS*/
 const trendingMoviesPreview = document.getElementById("trendingPreview");
 const trendingPreview_header = document.querySelector(
   ".trendingPreview-header"
@@ -23,6 +32,7 @@ const trenMovieContainer = document.querySelectorAll(
   ".trendingPreview-movieList .movie-container"
 );
 
+/*TOP RATED MOVIES PREVIEW - TODOS LOS ELEMENTOS*/
 const topRatedMoviesPreview = document.getElementById("topRatedPreview");
 const topRatedPreview_header = document.querySelector(
   ".topRatedPreview-header"
@@ -38,6 +48,7 @@ const topMovieContainer = document.querySelectorAll(
   ".topRatedCarousel-movieList .movie-container"
 );
 
+/*POPULAR MOVIES PREVIEW - TODOS LOS ELEMENTOS*/
 const popularMoviesPreview = document.getElementById("popularPreview");
 const popularPreview_header = document.querySelector(".popularPreview-header");
 const popularPreview_title = document.querySelector(".popularPreview-title");
@@ -51,6 +62,7 @@ const popularMovieContainer = document.querySelectorAll(
   ".popularPreview-movieList .movie-container"
 );
 
+/*PROVIDERS MOVIE PREVIEW - TODOS LOS ELEMENTOS*/
 const providersMoviesPreview = document.getElementById("providersPreview");
 const providersPreview_header = document.querySelector(
   ".providersPreview-header"
@@ -67,3 +79,6 @@ const providersCarousel = document.querySelector(".providersCarousel");
 const providersMovieContainer = document.querySelectorAll(
   ".providersPreview-movieList .movie-container"
 );
+
+/*SECCION GENERICA PARA LISTAR LAS PELICULAS - TODOS LOS ELEMENTOS*/
+const genericSection = document.querySelector("#genericList");
