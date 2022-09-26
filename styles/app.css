@@ -147,6 +147,8 @@ input::placeholder {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 .header-list li {
@@ -415,4 +417,18 @@ input::placeholder {
 
 .inactive {
   display: none;
+}
+
+/*--------------------------------------------------*/
+/*------------------MEDIA QUERIES------------------*/
+/*LISTA DE CATEGORIAS*/
+
+@media (max-width: 425px) {
+  .categoriesPreview-list {
+    margin: 0;
+  }
+
+  #searchForm {
+    margin: 12px auto;
+  }
 }

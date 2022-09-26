@@ -60,6 +60,8 @@ function navigator() {
 }
 
 function homePage() {
+  searchForm.value = "";
+
   categoriesPreview.classList.remove("inactive");
   categoryPreview_title.classList.add("inactive");
   categoriesPreview_list.classList.remove("inactive");
@@ -129,9 +131,6 @@ function categoriesPage() {
     nameCategory = nameCategory.replace("%C3%BA", "u");
   }
 
-  nameCategory.includes("%C3%B3");
-  nameCategory.replace("%C3%B3", "o");
-  console.log(nameCategory);
   getMoviesByCategory(idCategory, nameCategory);
 }
 

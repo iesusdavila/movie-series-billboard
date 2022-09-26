@@ -59,37 +59,9 @@ async function getMoviesBySearch(query) {
   });
   const movies = data.results;
 
-  console.log(movies);
-
   genericSection.innerHTML = "";
 
   createContainerGenericForMovies(movies, { provider: false });
-  /*movies.forEach((movie) => {
-    const movie_container = document.createElement("div");
-    movie_container.classList.add("movie-container");
-    movie_container.addEventListener("click", () => {
-      location.hash = "#movie=" + movie.id;
-    });
-
-    if (movie.poster_path) {
-      const imageMovie = document.createElement("img");
-      imageMovie.classList.add("movie-img");
-      imageMovie.alt = movie.title;
-      imageMovie.setAttribute(
-        "data-image",
-        "https://image.tmdb.org/t/p/w300/" + movie.poster_path
-      );
-      movie_container.appendChild(imageMovie);
-      observer.observe(imageMovie);
-    } else {
-      const withOutImg = document.createElement("div");
-      withOutImg.classList.add("movie-img--default");
-      withOutImg.classList.add("movie-img");
-      withOutImg.innerText = movie.title;
-      movie_container.appendChild(withOutImg);
-    }
-    genericSection.appendChild(movie_container);
-  });*/
 }
 
 /*--------------------------------------------------*/
