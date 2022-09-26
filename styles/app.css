@@ -231,7 +231,8 @@ input::placeholder {
 .trendingPreview-header,
 .topRatedPreview-header,
 .popularPreview-header,
-.providersPreview-header {
+.providersPreview-header,
+.categoriesPreview-header {
   display: flex;
   align-items: center;
   justify-content: space-between;

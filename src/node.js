@@ -13,9 +13,20 @@ const header_list_information = document.querySelector(
   ".header-list--information"
 );
 
+/*--------------------------------------------------*/
 /*CATEGORIAS MOVIES - TODOS LOS ELEMENTOS*/
 const categoriesPreview = document.getElementById("categoriesPreview");
+const categoryPreview_header = document.querySelector(
+  ".categoriesPreview-header"
+);
+const categoryPreview_title = document.querySelector(
+  ".categoriesPreview-title"
+);
+const categoriesPreview_list = document.querySelector(
+  ".categoriesPreview-list"
+);
 
+/*--------------------------------------------------*/
 /*TRENDING PREVIEW MOVIES - TODOS LOS ELEMENTOS*/
 const trendingMoviesPreview = document.getElementById("trendingPreview");
 const trendingPreview_header = document.querySelector(
@@ -32,6 +43,7 @@ const trenMovieContainer = document.querySelectorAll(
   ".trendingPreview-movieList .movie-container"
 );
 
+/*--------------------------------------------------*/
 /*TOP RATED MOVIES PREVIEW - TODOS LOS ELEMENTOS*/
 const topRatedMoviesPreview = document.getElementById("topRatedPreview");
 const topRatedPreview_header = document.querySelector(
@@ -48,6 +60,7 @@ const topMovieContainer = document.querySelectorAll(
   ".topRatedCarousel-movieList .movie-container"
 );
 
+/*--------------------------------------------------*/
 /*POPULAR MOVIES PREVIEW - TODOS LOS ELEMENTOS*/
 const popularMoviesPreview = document.getElementById("popularPreview");
 const popularPreview_header = document.querySelector(".popularPreview-header");
@@ -62,6 +75,7 @@ const popularMovieContainer = document.querySelectorAll(
   ".popularPreview-movieList .movie-container"
 );
 
+/*--------------------------------------------------*/
 /*PROVIDERS MOVIE PREVIEW - TODOS LOS ELEMENTOS*/
 const providersMoviesPreview = document.getElementById("providersPreview");
 const providersPreview_header = document.querySelector(
@@ -80,5 +94,6 @@ const providersMovieContainer = document.querySelectorAll(
   ".providersPreview-movieList .movie-container"
 );
 
+/*--------------------------------------------------*/
 /*SECCION GENERICA PARA LISTAR LAS PELICULAS - TODOS LOS ELEMENTOS*/
 const genericSection = document.querySelector("#genericList");

@@ -20,7 +20,7 @@
 <body>
   <header id="header" class="header-container">
     <div class="header-logo-title">
-      <img src="./public/logo.png" alt="Movie Billboard" class="header-icon inactive">
+      <img src="./public/logo.png" alt="Movie Billboard" class="header-icon">
       <h1 class="header-title">Movie Billboard</h1>
     </div>
     <form id="searchForm" class="header-searchForm">
@@ -37,6 +37,9 @@
 
   <section id="categoriesPreview" class="categoriesPreview-container">
     <!-- <h2 class="categoriesPreview-title">Categorías</h2> -->
+    <div class="categoriesPreview-header">
+      <h2 class="categoriesPreview-title">Categorias</h2>
+    </div>
 
     <article class="categoriesPreview-list">
       <div class="category-container category-container--loading">
@@ -44,7 +47,7 @@
       <div class="category-container category-container--loading">
       </div>
       <div class="category-container category-container--loading">
-        <!-- <h3 id="id14" class="category-title">Acción</h3> -->
+        <h3 id="id14" class="category-title">Acción</h3>
       </div>
     </article>
   </section>
@@ -56,7 +59,7 @@
     </div>
 
     <div class="trendingCarousel">
-      <button class="arrowLeft" id="trendArrowLeft">
+      <button class="arrowLeft inactive" id="trendArrowLeft">
         <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
       </button>
       <article class="trendingPreview-movieList">
@@ -87,7 +90,7 @@
     </div>
 
     <div class="topRatedCarousel">
-      <button class="arrowLeft" id="topRatArrowLeft">
+      <button class="arrowLeft inactive" id="topRatArrowLeft">
         <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
       </button>
       <article class="topRatedCarousel-movieList">
@@ -166,7 +169,7 @@
     </div>
 
     <div class="popularCarousel">
-      <button class="arrowLeft" id="popularArrowLeft">
+      <button class="arrowLeft inactive" id="popularArrowLeft">
         <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
       </button>
       <article class="popularPreview-movieList">
@@ -197,7 +200,7 @@
     </div>
 
     <div class="providersCarousel">
-      <button class="arrowLeft" id="providersArrowLeft">
+      <button class="arrowLeft inactive" id="providersArrowLeft">
         <img src="./public/left-arrow.png" alt="Flecha a la izquierda" class="arrowLeft-image">
       </button>
       <article class="providersPreview-movieList">
