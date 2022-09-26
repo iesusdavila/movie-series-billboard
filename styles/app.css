@@ -89,8 +89,7 @@ h3 {
   width: 40px;
 }
 
-/*HEADER INPUT AND BUTTON*/
-
+/*HEADER INPUT AND BUTTON PARA BUSQUEDAS*/
 #searchForm {
   display: flex;
   align-items: center;
@@ -101,6 +100,7 @@ h3 {
 #searchForm input {
   height: 48px;
   width: 100%;
+  color: var(--color-letters);
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   background-color: var(--color-2-background);
@@ -114,6 +114,11 @@ input::placeholder {
   font-family: var(--font-family-text);
 }
 
+#searchForm input:focus-visible {
+  outline: 2px solid var(--color-title);
+  outline-offset: 2px;
+}
+
 #searchForm button {
   width: 56px;
   height: 48px;
@@ -124,7 +129,12 @@ input::placeholder {
   font-weight: var(--font-weight-text2);
   font-size: 14px;
   cursor: pointer;
-  background-color: var(--color-2-background);
+  background-color: var(--color-title);
+}
+
+#searchForm button img {
+  width: 25px;
+  height: 25px;
 }
 
 /*HEADER LISTA DE OPCIONES*/

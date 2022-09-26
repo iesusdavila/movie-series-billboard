@@ -2,6 +2,10 @@ header_list_home.addEventListener("click", () => {
   location.hash = "#home";
 });
 
+searchBtn.addEventListener("click", () => {
+  location.hash = "#search=" + searchForm.value;
+});
+
 trendingBtn.addEventListener("click", () => {
   location.hash = "#trends";
 });
@@ -83,6 +87,19 @@ function homePage() {
   getTopRatedMoviesPreview();
   getPopularMoviesPreview();
   getProvidersMoviesPreview();
+}
+
+function searchPage() {
+  categoryPreview_title.classList.remove("inactive");
+  categoriesPreview_list.classList.add("inactive");
+  trendingMoviesPreview.classList.add("inactive");
+  topRatedMoviesPreview.classList.add("inactive");
+  popularMoviesPreview.classList.add("inactive");
+  providersMoviesPreview.classList.add("inactive");
+  genericSection.classList.remove("inactive");
+
+  const query = location.hash.split("=")[1];
+  getMoviesBySearch(query);
 }
 
 function categoriesPage() {
