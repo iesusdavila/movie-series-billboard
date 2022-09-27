@@ -194,6 +194,85 @@ input::placeholder {
 }
 
 /*--------------------------------------------------*/
+/*SECCION DE PELICULA TOP*/
+/*ESTRUCTURA GENERAL DEL CONTENEDOR*/
+#movieTopPreview {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: black;
+  margin: 20px auto;
+  padding: 35px 0;
+}
+
+/*ESTRUCTURA GENERAL DE LOS DETALLES DE LA PELICULA*/
+.movieTopPreview-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 30%;
+  margin-left: 25px;
+}
+
+/*ESTRUCTURA GENERAL DE LOS DETALLES DE CATEGORIAS Y ESTRELLAS*/
+.movieTopPreview-details--category-star {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 15px;
+  margin: 10px 0;
+}
+
+/*ESTRUCTURA GENERAL DE LAS CATEGORIAS DE LA PELICULA*/
+.movieTopPreview-details--category {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(214, 130, 21);
+}
+
+/*ESTRUCTURA GENERAL DE LAS ESTRELLAS DE LA PELICULA*/
+.movieTopPreview-details--star {
+  font-size: 20px;
+  color: #ffc83d;
+}
+
+/*ESTRUCTURA GENERAL DE LA DESCRIPCION DE LA PELICULA*/
+.movieTopPreview-details--description {
+  font-size: 18px;
+  text-align: justify;
+  color: var(--color-letters);
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #100f0f;
+}
+
+/*ESTRUCTURA GENERAL DEL VIDEO DE LA PELICULA*/
+.movieTopPreview-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+/*ESTRUCTURA DEL IFRAME DONDE SE MUESTRA EL VIDEO*/
+.movieTopPreview-video iframe {
+  width: 100%;
+  margin: 0 25px;
+  height: 500px;
+}
+
+/*--------------------------------------------------*/
 /*SECCION DE LAS CATEGORIAS*/
 /*ESTRUCTURA DE LISTAS DE CATEGORIAS EN GENERAL*/
 #categoriesPreview {
@@ -430,5 +509,9 @@ input::placeholder {
 
   #searchForm {
     margin: 12px auto;
+  }
+
+  #movieTopPreview {
+    display: none;
   }
 }

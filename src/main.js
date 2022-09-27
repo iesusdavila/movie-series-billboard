@@ -101,6 +101,7 @@ async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
 
   const movies = data.results;
+  console.log(movies[2]);
 
   const trendingPreview_movieList = document.querySelector(
     ".trendingPreview-movieList"
