@@ -14,6 +14,30 @@ const header_list_information = document.querySelector(
 );
 
 /*--------------------------------------------------*/
+/*MOVIE TOP EN EL INICIO - TODOS LOS ELEMENTOS*/
+const movieTopPreview = document.getElementById("movieTopPreview");
+const movieTopPreview_details = document.querySelector(
+  ".movieTopPreview-details"
+);
+const movieTopPreview_details_title = document.querySelector(
+  ".movieTopPreview-details--title"
+);
+const movieTopPreview_details_category_star = document.querySelector(
+  ".movieTopPreview-details--category-star"
+);
+const movieTopPreview_details_category = document.querySelector(
+  ".movieTopPreview-details--category"
+);
+const movieTopPreview_details_star = document.querySelector(
+  ".movieTopPreview-details--star"
+);
+const movieTopPreview_details_description = document.querySelector(
+  ".movieTopPreview-details--description"
+);
+
+const movieTopPreview_video = document.querySelector(".movieTopPreview-video");
+
+/*--------------------------------------------------*/
 /*CATEGORIAS MOVIES - TODOS LOS ELEMENTOS*/
 const categoriesPreview = document.getElementById("categoriesPreview");
 const categoryPreview_header = document.querySelector(

@@ -197,13 +197,22 @@ input::placeholder {
 /*SECCION DE PELICULA TOP*/
 /*ESTRUCTURA GENERAL DEL CONTENEDOR*/
 #movieTopPreview {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   background-color: black;
   margin: 20px auto;
-  padding: 35px 0;
+  padding: 35px 0; */
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  margin: 20px auto;
+  padding: 0 0 35px 0;
+  flex-wrap: wrap;
+  align-content: center;
 }
 
 /*ESTRUCTURA GENERAL DE LOS DETALLES DE LA PELICULA*/
@@ -213,8 +222,7 @@ input::placeholder {
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: flex-start;
-  width: 30%;
-  margin-left: 25px;
+  width: 70%;
 }
 
 /*ESTRUCTURA GENERAL DE LOS DETALLES DE CATEGORIAS Y ESTRELLAS*/
@@ -262,13 +270,12 @@ input::placeholder {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 70%;
+  width: 95%;
 }
 
 /*ESTRUCTURA DEL IFRAME DONDE SE MUESTRA EL VIDEO*/
 .movieTopPreview-video iframe {
   width: 100%;
-  margin: 0 25px;
   height: 500px;
 }
 

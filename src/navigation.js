@@ -84,6 +84,7 @@ function homePage() {
 
   genericSection.classList.add("inactive");
 
+  getMovieTopPreview();
   getCategoriesMovies();
   getTrendingMoviesPreview();
   getTopRatedMoviesPreview();
