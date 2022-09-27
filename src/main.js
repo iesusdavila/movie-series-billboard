@@ -66,7 +66,12 @@ async function getMoviesBySearch(query) {
 
 /*--------------------------------------------------*/
 /*------------------MOVIE TOP------------------*/
-async function getMovieTopPreview() {
+/*MOVIE TOP SE ENCUENTRA AHORA JUNTO A MOVIE TRENDS DEBIDO
+A QUE SE NECESITABA AHORRAR CODIGO PORQUE EN LA SECCION DE MOVIE
+TOP SE NECESITA LA PRIMERA PELICULA DEL MOVIE TREND O LA PELICULA
+QUE SE DESEE LUEGO PORQUE LO MAS PROBABLE ES QUE ESA SECCION DE 
+MOVIE TOP SEA AL AZAR*/
+/*async function getMovieTopPreview() {
   const { data } = await api("trending/movie/day");
   const movies = data.results;
   movieTop = movies[0];
@@ -79,67 +84,15 @@ async function getMovieTopPreview() {
   const movieTrailer = dataMovieTrailer.results;
 
   movieTopPreview.innerHTML = "";
-  console.log(movieDetails);
+  trendingPreview.innerHTML = "";
+  console.log(trendingCarousel);
+  trendingCarousel.classList.add("inactive");
+  console.log(movieTopPreview_details_title);
+  movieTopPreview_details_title.classList.add("inactive");
 
+  createContainerMovies(trendingPreview, movies);
   createContainerMovieTop(movieDetails, movieTrailer);
-}
-
-/*CONTENEDOR PARA PELICULA TOP EN EL MENU PRINCIPAL*/
-function createContainerMovieTop(movieTop, movieTrailer) {
-  const movieDetailsContainer = document.createElement("div");
-  movieDetailsContainer.classList.add("movieTopPreview-details");
-
-  const movieTitle = document.createElement("h2");
-  movieTitle.classList.add("movieTopPreview-details--title");
-  movieTitle.innerText = movieTop.title;
-
-  const movieContainerStarCtg = document.createElement("div");
-  movieContainerStarCtg.classList.add("movieTopPreview-details--category-star");
-
-  const movieCtgList = document.createElement("ol");
-  movieCtgList.classList.add("movieTopPreview-details--category");
-  movieTop.genres.forEach((element) => {
-    const category = document.createElement("li");
-    category.innerText = element.name;
-    movieCtgList.appendChild(category);
-  });
-
-  const movieStar = document.createElement("h3");
-  movieStar.classList.add("movieTopPreview-details--star");
-  movieStar.innerText = "⭐" + parseFloat(movieTop.vote_average).toFixed(1);
-
-  movieContainerStarCtg.appendChild(movieCtgList);
-  movieContainerStarCtg.appendChild(movieStar);
-
-  const movieDescrip = document.createElement("h3");
-  movieDescrip.classList.add("movieTopPreview-details--description");
-  movieDescrip.innerText = movieTop.overview;
-
-  movieDetailsContainer.appendChild(movieTitle);
-  movieDetailsContainer.appendChild(movieContainerStarCtg);
-  movieDetailsContainer.appendChild(movieDescrip);
-  console.log(movieDetailsContainer);
-
-  const movieVideoContainer = document.createElement("div");
-  movieVideoContainer.classList.add("movieTopPreview-video");
-
-  const video = document.createElement("iframe");
-  const trailerKey = movieTrailer[0].key;
-  video.src = `https://www.youtube.com/embed/${trailerKey}?autoplay=1&loop=1&playlist=${trailerKey}&controls=0&vq=hd1080&rel=0&iv_load_policy=3&fs=0&color=white&disablekb=1&modestbranding=1&mute=1`;
-  video.title = "YouTube video player";
-  video.frameBorder = "0";
-  video.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-
-  console.log(document.querySelectorAll("h3"));
-
-  movieVideoContainer.appendChild(video);
-
-  // // observer.observe(imageMovie);
-
-  movieTopPreview.appendChild(movieDetailsContainer);
-  movieTopPreview.appendChild(movieVideoContainer);
-}
+}*/
 
 /*--------------------------------------------------*/
 /*------------------CATEGORIAS------------------*/
@@ -176,16 +129,24 @@ async function getMoviesByCategory(idCtg, nameCtg) {
 /*TENDENCIAS EN EL MENU PRINCIPAL*/
 async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
-
   const movies = data.results;
+  let movieAzar = Math.floor(Math.random() * (17 - 0 + 1)) + 0;
+  movieTop = movies[0];
 
-  const trendingPreview_movieList = document.querySelector(
-    ".trendingPreview-movieList"
+  const { data: movieDetails } = await api("/movie/" + movieTop.id);
+
+  const { data: dataMovieTrailer } = await api(
+    "/movie/" + movieTop.id + "/videos"
   );
+  const movieTrailer = dataMovieTrailer.results;
+  console.log(movieTrailer.length === 0);
 
-  trendingPreview_movieList.innerHTML = "";
+  movieTopPreview_details.innerHTML = "";
+  movieTopPreview_video.innerHTML = "";
+  trendingPreview.innerHTML = "";
 
-  createContainerMovies(trendingPreview_movieList, movies);
+  createContainerMovies(trendingPreview, movies);
+  createContainerMovieTop(movieDetails, movieTrailer);
 }
 
 /*TENDENCIAS MOSTRADA DE FORMA GENERAL*/
@@ -286,6 +247,54 @@ async function getProvidersMovies() {
 
 /*--------------------------------------------------*/
 /*------------------CONTENEDORES------------------*/
+/*CONTENEDOR PARA PELICULA TOP EN EL MENU PRINCIPAL*/
+function createContainerMovieTop(movieTop, movieTrailer) {
+  // const movieDetailsContainer = document.createElement("div");
+  // movieDetailsContainer.classList.add("movieTopPreview-details");
+
+  const movieTit = document.createElement("h2");
+  movieTit.classList.add("movieTopPreview-details--title");
+  movieTit.innerHTML = movieTop.title;
+
+  const movieContainerStarCtg = document.createElement("div");
+  movieContainerStarCtg.classList.add("movieTopPreview-details--category-star");
+
+  const movieCtgList = document.createElement("ol");
+  movieCtgList.classList.add("movieTopPreview-details--category");
+  movieTop.genres.forEach((element) => {
+    const category = document.createElement("li");
+    category.innerText = element.name;
+    movieCtgList.appendChild(category);
+  });
+
+  const movieStar = document.createElement("h3");
+  movieStar.classList.add("movieTopPreview-details--star");
+  movieStar.innerText = "" + parseFloat(movieTop.vote_average).toFixed(1);
+
+  movieContainerStarCtg.appendChild(movieCtgList);
+  movieContainerStarCtg.appendChild(movieStar);
+
+  const movieDescrip = document.createElement("h3");
+  movieDescrip.classList.add("movieTopPreview-details--description");
+  movieDescrip.innerText = movieTop.overview;
+
+  movieTopPreview_details.appendChild(movieTit);
+  movieTopPreview_details.appendChild(movieContainerStarCtg);
+  movieTopPreview_details.appendChild(movieDescrip);
+
+  const video = document.createElement("iframe");
+  const trailerKey = movieTrailer[0].key;
+  video.src = `https://www.youtube.com/embed/${trailerKey}?autoplay=0&loop=1&playlist=${trailerKey}&controls=1&vq=hd1080&rel=0&iv_load_policy=3&fs=0&color=white&disablekb=1&modestbranding=1&mute=1`;
+  video.title = "YouTube video player";
+  video.frameBorder = "0";
+  video.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+
+  movieTopPreview_video.appendChild(video);
+
+  // // observer.observe(imageMovie);
+}
+
 /*CONTENEDOR PARA CATEGORIAS EN EL MENU PRINCIPAL*/
 function createContainerCategories(parentTag, arrayCategories) {
   arrayCategories.forEach((category) => {

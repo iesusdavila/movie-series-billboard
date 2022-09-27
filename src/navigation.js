@@ -62,6 +62,9 @@ function navigator() {
 function homePage() {
   searchForm.value = "";
 
+  movieTopPreview_details.classList.remove("inactive");
+  movieTopPreview_video.classList.remove("inactive");
+
   categoriesPreview.classList.remove("inactive");
   categoryPreview_title.classList.add("inactive");
   categoriesPreview_list.classList.remove("inactive");
@@ -84,15 +87,17 @@ function homePage() {
 
   genericSection.classList.add("inactive");
 
-  getMovieTopPreview();
-  getCategoriesMovies();
   getTrendingMoviesPreview();
+  //getMovieTopPreview();
+  getCategoriesMovies();
   getTopRatedMoviesPreview();
   getPopularMoviesPreview();
   getProvidersMoviesPreview();
 }
 
 function searchPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
   categoryPreview_title.classList.remove("inactive");
   categoriesPreview_list.classList.add("inactive");
   trendingMoviesPreview.classList.add("inactive");
@@ -106,6 +111,8 @@ function searchPage() {
 }
 
 function categoriesPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
   categoryPreview_title.classList.remove("inactive");
   categoriesPreview_list.classList.add("inactive");
   trendingMoviesPreview.classList.add("inactive");
@@ -136,6 +143,8 @@ function categoriesPage() {
 }
 
 function trendsPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
   categoriesPreview.classList.add("inactive");
   trendingBtn.classList.add("inactive");
   trendingCarousel.classList.add("inactive");
@@ -150,6 +159,8 @@ function trendsPage() {
 }
 
 function topRatedPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
   categoriesPreview.classList.add("inactive");
   trendingMoviesPreview.classList.add("inactive");
   topRatedBtn.classList.add("inactive");
@@ -162,6 +173,8 @@ function topRatedPage() {
 }
 
 function popularPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
   categoriesPreview.classList.add("inactive");
   trendingMoviesPreview.classList.add("inactive");
   topRatedMoviesPreview.classList.add("inactive");
@@ -174,6 +187,8 @@ function popularPage() {
 }
 
 function providersPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
   categoriesPreview.classList.add("inactive");
   trendingMoviesPreview.classList.add("inactive");
   topRatedMoviesPreview.classList.add("inactive");

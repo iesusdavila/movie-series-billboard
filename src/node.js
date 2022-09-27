@@ -16,6 +16,9 @@ const header_list_information = document.querySelector(
 /*--------------------------------------------------*/
 /*MOVIE TOP EN EL INICIO - TODOS LOS ELEMENTOS*/
 const movieTopPreview = document.getElementById("movieTopPreview");
+const movieTopPreview_container = document.querySelector(
+  ".movieTopPreview-container"
+);
 const movieTopPreview_details = document.querySelector(
   ".movieTopPreview-details"
 );
