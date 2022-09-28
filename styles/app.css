@@ -213,14 +213,14 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-items: center;
   width: 30%;
   height: auto;
   margin-right: 25px;
 }
 
-.movieTopPreview-details::after {
-  background-color: green;
+/*ESTRUCTURA GENERAL DEL TITULO DE LA PELICULA*/
+.movieTopPreview-details--title {
+  text-align: center;
 }
 
 /*ESTRUCTURA GENERAL DE LOS DETALLES DE CATEGORIAS Y ESTRELLAS*/
@@ -228,10 +228,13 @@ input::placeholder {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   padding: 0 15px;
-  margin: 10px 0;
+  margin: 5px 0;
+  font-size: 20px;
+  color: #ffc83d;
+  font-weight: var(--font-weight-text2);
 }
 
 /*ESTRUCTURA GENERAL DE LAS CATEGORIAS DE LA PELICULA*/
@@ -241,16 +244,46 @@ input::placeholder {
   gap: 10px;
   margin: 0;
   padding: 0;
-  font-size: 20px;
   flex-direction: row;
   align-items: center;
-  color: rgb(255, 200, 61);
+  flex-wrap: wrap;
+}
+
+.movieTopPreview-details--category li {
+  text-decoration: dashed;
 }
 
 /*ESTRUCTURA GENERAL DE LAS ESTRELLAS DE LA PELICULA*/
-.movieTopPreview-details--star {
+/* .movieTopPreview-details--star {
   font-size: 20px;
   color: #ffc83d;
+} */
+
+/*ESTRUCTURA GENERAL DEL NOMBRE DE LA PRODUCTORA DE LA PELICULA*/
+.movieTopPreview-details--production {
+  padding: 0 5px;
+  font-size: 20px;
+  font-weight: var(--font-weight-text2);
+  color: #0f6194;
+}
+
+.movieTopPreview-details--production span {
+  font-weight: var(--font-weight-text1);
+  color: var(--color-letters);
+}
+
+/*ESTRUCTURA GENERAL DEL LANZAMIENTO DE LA PELICULA*/
+.movieTopPreview-details--date {
+  padding: 0 5px;
+  margin: 5px 0;
+  font-size: 20px;
+  font-weight: var(--font-weight-text2);
+  color: #0f6194;
+}
+
+.movieTopPreview-details--date span {
+  font-weight: var(--font-weight-text1);
+  color: var(--color-letters);
 }
 
 /*ESTRUCTURA GENERAL DE LA DESCRIPCION DE LA PELICULA*/
@@ -258,7 +291,7 @@ input::placeholder {
   font-size: 18px;
   text-align: justify;
   color: var(--color-letters);
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   background-image: linear-gradient(
     to bottom,
@@ -275,6 +308,14 @@ input::placeholder {
     #171616,
     #181717
   );
+}
+
+.movieTopPreview-details--link {
+  margin: 5px 0;
+  color: #ffc83d;
+  font-size: 20px;
+  font-weight: var(--font-weight-text1);
+  text-align: center;
 }
 
 /*ESTRUCTURA GENERAL DEL VIDEO DE LA PELICULA*/
@@ -524,9 +565,9 @@ input::placeholder {
     margin: 12px auto;
   }
 
-  /* #movieTopPreview {
+  #movieTopPreview {
     display: none;
-  } */
+  }
 }
 
 .inactive {

@@ -130,16 +130,17 @@ async function getMoviesByCategory(idCtg, nameCtg) {
 async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
   const movies = data.results;
+
   let movieAzar = Math.floor(Math.random() * (17 - 0 + 1)) + 0;
   movieTop = movies[0];
-
-  const { data: movieDetails } = await api("/movie/" + movieTop.id);
 
   const { data: dataMovieTrailer } = await api(
     "/movie/" + movieTop.id + "/videos"
   );
   const movieTrailer = dataMovieTrailer.results;
-  console.log(movieTrailer.length === 0);
+
+  const { data: movieDetails } = await api("/movie/" + movieTop.id);
+  console.log(movieDetails);
 
   movieTopPreview_details.innerHTML = "";
   movieTopPreview_video.innerHTML = "";
@@ -249,9 +250,6 @@ async function getProvidersMovies() {
 /*------------------CONTENEDORES------------------*/
 /*CONTENEDOR PARA PELICULA TOP EN EL MENU PRINCIPAL*/
 function createContainerMovieTop(movieTop, movieTrailer) {
-  // const movieDetailsContainer = document.createElement("div");
-  // movieDetailsContainer.classList.add("movieTopPreview-details");
-
   const movieTit = document.createElement("h2");
   movieTit.classList.add("movieTopPreview-details--title");
   movieTit.innerHTML = movieTop.title;
@@ -269,18 +267,41 @@ function createContainerMovieTop(movieTop, movieTrailer) {
 
   const movieStar = document.createElement("h3");
   movieStar.classList.add("movieTopPreview-details--star");
-  movieStar.innerText = "" + parseFloat(movieTop.vote_average).toFixed(1);
+  movieStar.innerText = "⭐" + parseFloat(movieTop.vote_average).toFixed(1);
 
   movieContainerStarCtg.appendChild(movieCtgList);
   movieContainerStarCtg.appendChild(movieStar);
+
+  const movieProduction = document.createElement("h3");
+  movieProduction.classList.add("movieTopPreview-details--production");
+  const movieSpanProduc = document.createElement("span");
+  movieSpanProduc.innerText = movieTop.production_companies[0].name;
+  movieProduction.innerText = "Productora: ";
+  movieProduction.appendChild(movieSpanProduc);
+
+  const movieDate = document.createElement("h3");
+  movieDate.classList.add("movieTopPreview-details--date");
+  const movieSpanDate = document.createElement("span");
+  movieSpanDate.innerText = movieTop.release_date;
+  movieDate.innerText = "Lanzamiento: ";
+  movieDate.appendChild(movieSpanDate);
 
   const movieDescrip = document.createElement("h3");
   movieDescrip.classList.add("movieTopPreview-details--description");
   movieDescrip.innerText = movieTop.overview;
 
+  const movieLink = document.createElement("a");
+  movieLink.classList.add("movieTopPreview-details--link");
+  movieLink.href = movieTop.homepage;
+  movieLink.target = "_blank";
+  movieLink.innerHTML = "Link oficial de la pelicula";
+
   movieTopPreview_details.appendChild(movieTit);
   movieTopPreview_details.appendChild(movieContainerStarCtg);
+  movieTopPreview_details.appendChild(movieProduction);
+  movieTopPreview_details.appendChild(movieDate);
   movieTopPreview_details.appendChild(movieDescrip);
+  movieTopPreview_details.appendChild(movieLink);
 
   const video = document.createElement("iframe");
   const trailerKey = movieTrailer[0].key;
