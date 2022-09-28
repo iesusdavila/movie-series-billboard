@@ -344,7 +344,7 @@ input::placeholder {
 /*SECCION DE LAS CATEGORIAS*/
 /*ESTRUCTURA DE LISTAS DE CATEGORIAS EN GENERAL*/
 #categoriesPreview {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 /*LISTA DE CATEGORIAS*/
@@ -385,6 +385,14 @@ input::placeholder {
 }
 
 /*--------------------------------------------------*/
+/*MARGENES ENTRE SECCIONES*/
+#trendingPreview,
+#topRatedPreview,
+#popularPreview,
+#providersPreview {
+  margin-top: 30px;
+}
+
 /*ESTRUCTURA DE LISTAS DE PELICULAS TRENDING, TOP RATED, POPULAR Y PROVEEDORES EN GENERAL*/
 /*ESTRUCTURA DE LA CABECERA ANTES DEL CARRUSEL*/
 .trendingPreview-header,
@@ -549,6 +557,7 @@ input::placeholder {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 30px;
 }
 
 /*LOS OTROS ATRIBUTOS DE .movie-container YA FUERON ESCRITOS PREVIAMENTE*/
@@ -564,10 +573,13 @@ input::placeholder {
 
 /*--------------------------------------------------*/
 /*------------------FOOTER------------------*/
+/*ESTRUCTURA GENERAL DEL FOOTER*/
 .site-footer {
   background-color: #131314;
+  margin-top: 30px;
 }
 
+/*ESTRUCTURA GENERAL DE LA PARTE DE ARRIBA*/
 .container-info {
   display: flex;
   flex-direction: row;
@@ -579,6 +591,7 @@ input::placeholder {
   margin: 0 auto;
 }
 
+/*DIMENSIONAMIENTO DE CADA INFORMACION MOSTRADA*/
 .footer-about {
   width: 600px;
 }
@@ -591,6 +604,7 @@ input::placeholder {
   width: 200px;
 }
 
+/*TAMAÑO Y COLOR DE LETRA DE CADA INFORMACION MOSTRADA*/
 .footer-about h2,
 .footer-categories h2,
 .footer-links h2 {
@@ -598,12 +612,14 @@ input::placeholder {
   font-size: 23px;
 }
 
+/*SECCION DE ACERCA DEL PROYECTO*/
 .text-about {
   color: #ffffff7a;
   margin: 10px 0 0 0;
   text-align: justify;
 }
 
+/*SECCION DE CATEGORIAS Y ENLACES DIRECTOS*/
 .footer-categories--links,
 .footer-links--select {
   list-style: none;
@@ -622,11 +638,13 @@ input::placeholder {
   color: var(--color-letters);
 }
 
+/*ESTRUCTURA GENERAL DE LA RAYA DE DIVISION*/
 hr {
   width: 90%;
   margin: 0 auto;
 }
 
+/*ESTRUCTURA GENERAL DE LA PARTE DE ABAJO*/
 .container-dataPersonal {
   display: flex;
   flex-direction: row;
@@ -638,6 +656,7 @@ hr {
   margin: 0 auto;
 }
 
+/*SECCION DE ACERCA DEL COPYRIGHT*/
 .copyright-text {
   margin: 0;
   color: #ffffff7a;
@@ -652,11 +671,13 @@ hr {
   color: var(--color-letters);
 }
 
+/*SECCION DEL NOMBRE DEL PROYECTO*/
 .dataPersonal-industry p {
   color: var(--color-title);
   margin: 0;
 }
 
+/*SECCION DE LAS REDES SOCIALES*/
 .social-icons {
   list-style: none;
   width: fit-content;
@@ -725,8 +746,4 @@ hr {
 
 .inactive {
   display: none;
-}
-
-.pepo {
-  background-color: green;
 }
