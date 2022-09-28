@@ -294,7 +294,7 @@ function createContainerMovieTop(movieTop, movieTrailer) {
   movieLink.classList.add("movieTopPreview-details--link");
   movieLink.href = movieTop.homepage;
   movieLink.target = "_blank";
-  movieLink.innerHTML = "Link oficial de la pelicula";
+  movieLink.innerHTML = "Reproducir Pelicula";
 
   movieTopPreview_details.appendChild(movieTit);
   movieTopPreview_details.appendChild(movieContainerStarCtg);

@@ -289,6 +289,7 @@ input::placeholder {
 /*ESTRUCTURA GENERAL DE LA DESCRIPCION DE LA PELICULA*/
 .movieTopPreview-details--description {
   font-size: 18px;
+  font-style: italic;
   text-align: justify;
   color: var(--color-letters);
   padding: 12px;
@@ -310,12 +311,21 @@ input::placeholder {
   );
 }
 
+/*ESTRUCTURA GENERAL DEL LINK DE LA PELICULA*/
+
 .movieTopPreview-details--link {
-  margin: 5px 0;
+  margin: 5px auto;
   color: #ffc83d;
   font-size: 20px;
-  font-weight: var(--font-weight-text1);
-  text-align: center;
+  font-weight: var(--font-weight-text2);
+  border-bottom: 2px solid;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.movieTopPreview-details--link:hover {
+  color: #a8862f;
+  border-bottom: 2px dashed;
 }
 
 /*ESTRUCTURA GENERAL DEL VIDEO DE LA PELICULA*/
@@ -550,6 +560,134 @@ input::placeholder {
 /*LOS OTROS ATRIBUTOS DE .movie-img YA FUERON ESCRITOS PREVIAMENTE*/
 .genericList-container .movie-img {
   height: 370px;
+}
+
+/*--------------------------------------------------*/
+/*------------------FOOTER------------------*/
+.site-footer {
+  background-color: #131314;
+}
+
+.container-info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 25px 0;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.footer-about {
+  width: 500px;
+}
+
+.footer-categories {
+  width: 200px;
+}
+
+.footer-links {
+  width: 200px;
+}
+
+.footer-about h2,
+.footer-categories h2,
+.footer-links h2 {
+  color: var(--color-letters);
+  font-size: 23px;
+}
+
+.text-about {
+  color: #ffffff7a;
+  margin: 10px 0 0 0;
+  text-align: justify;
+}
+
+.footer-categories--links,
+.footer-links--select {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 5px;
+}
+
+.footer-categories--links li a,
+.footer-links--select li a {
+  color: #ffffff7a;
+  text-decoration: none;
+}
+
+hr {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.copyright-text {
+  margin: 0;
+  color: #ffffff7a;
+}
+
+.copyright-text a {
+  text-decoration: none;
+  color: #ffffff7a;
+}
+
+.container-dataPersonal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 25px 0;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.social-icons {
+  list-style: none;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.social-icons li {
+  background-color: #ffffff4a;
+  width: 40px;
+  height: 40px;
+  border-radius: 19px;
+  cursor: pointer;
+}
+
+.twitter img,
+.github img,
+.linkedin img {
+  width: 30px;
+  padding: 1px;
+  margin: 5px 5px;
+}
+
+.facebook img {
+  width: 40px;
+}
+
+.social-icons li:nth-child(1):hover {
+  background-color: #3b5998;
+}
+
+.social-icons li:nth-child(2):hover {
+  background-color: #00aced;
+}
+
+.social-icons li:nth-child(3):hover {
+  background-color: #a5a3a3;
+}
+
+.social-icons li:nth-child(4):hover {
+  background-color: #007bb6;
 }
 
 /*--------------------------------------------------*/
