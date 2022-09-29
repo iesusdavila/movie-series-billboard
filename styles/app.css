@@ -264,23 +264,26 @@ input::placeholder {
   color: #ffc83d;
 } */
 
-/*ESTRUCTURA GENERAL DEL NOMBRE DE LA PRODUCTORA DE LA PELICULA*/
-.movieTopPreview-details--production {
+/*ESTRUCTURA GENERAL DEL NOMBRE DE LA PRODUCTORA, FECHA DE LANZAMIENTO Y DURACION DE LA PELICULA*/
+.movieTopPreview-details--production,
+.movieTopPreview-details--date,
+.movieTopPreview-details--duration {
   padding: 0 5px;
   font-size: 20px;
   font-weight: var(--font-weight-text2);
   color: #0f6194;
 }
 
-.movieTopPreview-details--production span {
+.movieTopPreview-details--production span,
+.movieTopPreview-details--date span,
+.movieTopPreview-details--duration span {
   font-weight: var(--font-weight-text1);
   color: var(--color-letters);
 }
 
 /*ESTRUCTURA GENERAL DEL LANZAMIENTO DE LA PELICULA*/
-.movieTopPreview-details--date {
+/* .movieTopPreview-details--date {
   padding: 0 5px;
-  margin: 5px 0;
   font-size: 20px;
   font-weight: var(--font-weight-text2);
   color: #0f6194;
@@ -289,7 +292,7 @@ input::placeholder {
 .movieTopPreview-details--date span {
   font-weight: var(--font-weight-text1);
   color: var(--color-letters);
-}
+} */
 
 /*ESTRUCTURA GENERAL DE LA DESCRIPCION DE LA PELICULA*/
 .movieTopPreview-details--description {
@@ -729,6 +732,307 @@ hr {
 
 .social-icons li:nth-child(4):hover {
   background-color: #007bb6;
+}
+
+/*--------------------------------------------------*/
+/*SECCION DE DETALLES DE UNA PELICULA*/
+/*DENTRO DE LA SECCION DE DETALLES DE PELICULA SE ENCUENTRAN VARIAS
+SECCIONES MAS, POR ENDE DE AQUI EN ADELANTE HASTA LLEGAR A LOS MEDIAS QUERIES TODAS LAS SEPARACIONES QUE SE HAGAN SERAN PARA SECCIONES
+DENTRO DE LA SECCION DE DETALLES DE PELICULA*/
+
+/*ESTRUCTURA GENERAL DEL CONTENEDOR*/
+
+/*-----D-E-T-A-L-L-E-S----S-E-C-C-I-O-N--1----*/
+/*ESTRUCTURA DE LA INFORMACION Y VIDEO*/
+.movieDetail-details-video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 25px 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+/*ESTRUCTURA GENERAL DE LOS DETALLES DE LA PELICULA*/
+.movieDetail-details {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 30%;
+  height: auto;
+  margin-right: 25px;
+}
+
+/*ESTRUCTURA GENERAL DEL TITULO DE LA PELICULA*/
+.movieDetail-details--title {
+  text-align: center;
+}
+
+/*ESTRUCTURA GENERAL DE LOS DETALLES DE CATEGORIAS Y ESTRELLAS*/
+.movieDetail-details--category-star {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 0 15px;
+  margin: 5px 0;
+  font-size: 20px;
+  color: #ffc83d;
+  font-weight: var(--font-weight-text2);
+}
+
+/*ESTRUCTURA GENERAL DE LAS CATEGORIAS DE LA PELICULA*/
+.movieDetail-details--category {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.movieDetail-details--category li {
+  text-decoration: dashed;
+  cursor: pointer;
+}
+
+.movieDetail-details--category li:hover {
+  color: rgb(168, 134, 47);
+}
+
+/*ESTRUCTURA GENERAL DEL NOMBRE DE LA PRODUCTORA, FECHA DE LANZAMIENTO Y DURACION DE LA PELICULA*/
+.movieDetail-details--date,
+.movieDetail-details--duration,
+.movieDetail-details--languages {
+  padding: 0 5px;
+  font-size: 20px;
+  font-weight: var(--font-weight-text2);
+  color: #0f6194;
+}
+
+.movieDetail-details--date span,
+.movieDetail-details--duration span,
+.movieDetail-details--languages span {
+  font-weight: var(--font-weight-text1);
+  color: var(--color-letters);
+}
+
+/*ESTRUCTURA GENERAL DE LA DESCRIPCION DE LA PELICULA*/
+.movieDetail-details--description {
+  font-size: 18px;
+  font-style: italic;
+  text-align: justify;
+  color: var(--color-letters);
+  padding: 12px;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    to bottom,
+    #181717,
+    #171616,
+    #151414,
+    #141313,
+    #121111,
+    #121111,
+    #121111,
+    #121111,
+    #141313,
+    #151414,
+    #171616,
+    #181717
+  );
+}
+
+/*ESTRUCTURA GENERAL DEL LINK DE LA PELICULA*/
+
+.movieDetail-details--link {
+  margin: 5px auto;
+  color: #ffc83d;
+  font-size: 20px;
+  font-weight: var(--font-weight-text2);
+  border-bottom: 2px solid;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.movieDetail-details--link:hover {
+  color: #a8862f;
+  border-bottom: 2px dashed;
+}
+
+/*ESTRUCTURA GENERAL DEL VIDEO DE LA PELICULA*/
+.movieDetail-video {
+  width: 60%;
+  height: auto;
+}
+
+/*ESTRUCTURA DEL IFRAME DONDE SE MUESTRA EL VIDEO*/
+.movieDetail-video iframe {
+  width: 100%;
+  height: 500px;
+}
+
+/*-----D-E-T-A-L-L-E-S----S-E-C-C-I-O-N--2----*/
+.movieDetail-poster-industry {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 25px 0;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.movieDetail-industry {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+}
+
+.industry--credits {
+  font-size: 28px;
+  color: var(--color-letters);
+  font-weight: var(--font-weight-title2);
+}
+
+.movieDetail-directors,
+.movieDetail-productors {
+  width: fit-content;
+}
+
+.directors-header,
+.productors-header {
+  font-size: 22px;
+  color: #666769;
+  font-weight: var(--font-weight-title2);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.directors-listDirectors,
+.productors-listProductors {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 15px auto;
+}
+
+.industry-logo {
+  width: 50%;
+}
+
+img.movieDetails-imgBack {
+  width: 90%;
+  margin-top: 30px;
+}
+
+img.movieDetails-imgFront {
+  height: 642px;
+}
+
+/*-----D-E-T-A-L-L-E-S----S-E-C-C-I-O-N--3----*/
+/*DIMENSIONAMIENTO ENTRE LOS CARRUSELES*/
+.movieDetails-actors {
+  background: black;
+  padding: 25px 0;
+}
+
+.movieDetails-moviesSimilar {
+  padding: 25px 0;
+}
+
+.movieDetails-moviesRecom {
+  background: black;
+  padding-top: 25px 0;
+  margin-bottom: 0;
+}
+
+/*ESTRUCTURA DE LA CABECERA ANTES DEL CARRUSEL*/
+.movieDetails-actors-header,
+.movieDetails-moviesSimilar-header,
+.movieDetails-moviesRecom-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 88%;
+}
+
+.actors-btn,
+.moviesSimilar-btn,
+.moviesRecom-btn {
+  width: 110px;
+  background-color: var(--color-title);
+  padding: 5px 20px;
+  border-radius: 8px;
+  color: var(--color-background);
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-text);
+  font-weight: var(--font-weight-text2);
+}
+
+/*ESTRUCTURA DEL CARRUSEL DE FOTOS*/
+.actorsCarousel,
+.moviesSimilarCarousel,
+.moviesRecomCarousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  height: 390px;
+  margin: 0px auto;
+  max-width: 90vw;
+  overflow: hidden;
+}
+
+/*ESTRUCTURA DE LAS IMAGENES EN EL CARRUSEL*/
+.movieDetails-actors-movieList,
+.movieDetails-moviesSimilar-movieList,
+.movieDetails-moviesRecom-movieList {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s ease-in-out;
+}
+
+/*ESTRUCTURA DE LOS BOTONES EN EL CARRUSEL*/
+
+.actorsCarousel button,
+.moviesSimilarCarousel button,
+.moviesRecomCarousel button {
+  border-radius: 25px;
+  background-color: var(--color-figures);
+  position: absolute;
+  z-index: 4;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  box-shadow: 0 2px 10px 0 rgba(32, 195, 29, 0.15);
+  border: 0;
+  cursor: pointer;
+}
+
+.actorsCarousel button:focus,
+.moviesSimilarCarousel button:focus,
+.moviesRecomCarousel button:focus {
+  outline: 0;
+}
+
+.actorsCarousel button img,
+.moviesSimilarCarousel button img,
+.moviesRecomCarousel button img {
+  width: 25px;
+  height: 25px;
 }
 
 /*--------------------------------------------------*/

@@ -124,3 +124,40 @@ const providersMovieContainer = document.querySelectorAll(
 /*--------------------------------------------------*/
 /*SECCION GENERICA PARA LISTAR LAS PELICULAS - TODOS LOS ELEMENTOS*/
 const genericSection = document.querySelector("#genericList");
+
+/*--------------------------------------------------*/
+/*SECCION PARA LOS DETALLES DE PELICULAS - TODOS LOS ELEMENTOS*/
+const movieDetail = document.querySelector("#movieDetail");
+
+/*DETALLES Y VIDEO*/
+const movieDetailsVideo = document.querySelector(".movieDetail-details-video");
+const movieDetails = document.querySelector(".movieDetail-details");
+const movieVideo = document.querySelector(".movieDetail-video");
+
+/*POSTER E INDUSTRIA*/
+const moviePosterIndustry = document.querySelector(
+  ".movieDetail-poster-industry"
+);
+const moviePosters = document.querySelector(".movieDetail-poster");
+const movieIndustry = document.querySelector(".movieDetail-industry");
+
+/*ACTORES*/
+const movieDetailsActors = document.querySelector(".movieDetails-actors");
+const movieActHeader = document.querySelector(".movieDetails-actors-header");
+const movieActCarousel = document.querySelector(".actorsCarousel");
+
+/*PELICULAS SIMILARES*/
+const movieDetailsMovSim = document.querySelector(
+  ".movieDetails-moviesSimilar"
+);
+const movieMSHeader = document.querySelector(
+  ".movieDetails-moviesSimilar-header"
+);
+const movieMSCarousel = document.querySelector(".moviesSimilarCarousel");
+
+/*PELICULAS RECOMENDADAS*/
+const movieDetailsMovRec = document.querySelector(".movieDetails-moviesRecom");
+const movieMRHeader = document.querySelector(
+  ".movieDetails-moviesRecom-header"
+);
+const movieMRCarousel = document.querySelector(".moviesRecomCarousel");

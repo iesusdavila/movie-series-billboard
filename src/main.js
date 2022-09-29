@@ -131,6 +131,8 @@ async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
   const movies = data.results;
 
+  console.log(movies);
+
   let movieAzar = Math.floor(Math.random() * (17 - 0 + 1)) + 0;
   movieTop = movies[0];
 
@@ -231,6 +233,7 @@ async function getProvidersMoviesPreview() {
     ".providersPreview-movieList"
   );
 
+  providersMoviesPreview.innerHTML = ""; //Cuando hagas lo de proveedores comenta esta linea
   providersPreview_movieList.innerHTML = "";
 
   createContainerProvidersMovies(providersPreview_movieList, movies);
@@ -289,6 +292,13 @@ function createContainerMovieTop(movieTop, movieTrailer) {
   movieDate.innerText = "Lanzamiento: ";
   movieDate.appendChild(movieSpanDate);
 
+  const movieDuration = document.createElement("h3");
+  movieDuration.classList.add("movieTopPreview-details--duration");
+  const movieSpanDuration = document.createElement("span");
+  movieSpanDuration.innerText = movieTop.runtime + " minutos";
+  movieDuration.innerText = "Duracion: ";
+  movieDuration.appendChild(movieSpanDuration);
+
   const movieDescrip = document.createElement("h3");
   movieDescrip.classList.add("movieTopPreview-details--description");
   movieDescrip.innerText = movieTop.overview;
@@ -303,6 +313,7 @@ function createContainerMovieTop(movieTop, movieTrailer) {
   movieTopPreview_details.appendChild(movieContainerStarCtg);
   movieTopPreview_details.appendChild(movieProduction);
   movieTopPreview_details.appendChild(movieDate);
+  movieTopPreview_details.appendChild(movieDuration);
   movieTopPreview_details.appendChild(movieDescrip);
   movieTopPreview_details.appendChild(movieLink);
 

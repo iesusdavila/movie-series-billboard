@@ -199,3 +199,14 @@ function providersPage() {
 
   getProvidersMovies();
 }
+
+function movieDetailsPage() {
+  movieTopPreview_details.classList.add("inactive");
+  movieTopPreview_video.classList.add("inactive");
+  categoriesPreview.classList.add("inactive");
+  trendingMoviesPreview.classList.add("inactive");
+  topRatedMoviesPreview.classList.add("inactive");
+  popularMoviesPreview.classList.add("inactive");
+  providersMoviesPreview.classList.add("inactive");
+  genericSection.classList.add("inactive");
+}
