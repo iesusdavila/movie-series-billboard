@@ -262,6 +262,9 @@ function createContainerMovieTop(movieTop, movieTrailer) {
   movieTop.genres.forEach((element) => {
     const category = document.createElement("li");
     category.innerText = element.name;
+    category.addEventListener("click", () => {
+      location.hash = `#category=${element.id}-${element.name}`;
+    });
     movieCtgList.appendChild(category);
   });
 

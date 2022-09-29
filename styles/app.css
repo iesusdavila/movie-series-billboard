@@ -251,6 +251,11 @@ input::placeholder {
 
 .movieTopPreview-details--category li {
   text-decoration: dashed;
+  cursor: pointer;
+}
+
+.movieTopPreview-details--category li:hover {
+  color: rgb(168, 134, 47);
 }
 
 /*ESTRUCTURA GENERAL DE LAS ESTRELLAS DE LA PELICULA*/
