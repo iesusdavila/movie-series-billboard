@@ -565,7 +565,7 @@ input::placeholder {
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 30px;
+  padding: 30px 0;
 }
 
 /*LOS OTROS ATRIBUTOS DE .movie-container YA FUERON ESCRITOS PREVIAMENTE*/
@@ -584,7 +584,7 @@ input::placeholder {
 /*ESTRUCTURA GENERAL DEL FOOTER*/
 .site-footer {
   background-color: #131314;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 }
 
 /*ESTRUCTURA GENERAL DE LA PARTE DE ARRIBA*/
@@ -891,6 +891,8 @@ DENTRO DE LA SECCION DE DETALLES DE PELICULA*/
   flex-wrap: wrap;
   align-items: center;
   align-content: center;
+  height: 700px;
+  justify-content: space-between;
 }
 
 .industry--credits {
@@ -922,7 +924,8 @@ DENTRO DE LA SECCION DE DETALLES DE PELICULA*/
 }
 
 .industry-logo {
-  width: 50%;
+  max-width: 50%;
+  max-height: 140px;
 }
 
 img.movieDetails-imgBack {
@@ -930,8 +933,12 @@ img.movieDetails-imgBack {
   margin-top: 30px;
 }
 
+.movieDetail-poster {
+  height: 700px;
+}
+
 img.movieDetails-imgFront {
-  height: 642px;
+  height: 100%;
 }
 
 /*-----D-E-T-A-L-L-E-S----S-E-C-C-I-O-N--3----*/
@@ -947,7 +954,7 @@ img.movieDetails-imgFront {
 
 .movieDetails-moviesRecom {
   background: black;
-  padding-top: 25px 0;
+  padding: 25px 0;
   margin-bottom: 0;
 }
 

@@ -131,8 +131,6 @@ async function getTrendingMoviesPreview() {
   const { data } = await api("trending/movie/day");
   const movies = data.results;
 
-  console.log(movies);
-
   let movieAzar = Math.floor(Math.random() * (17 - 0 + 1)) + 0;
   movieTop = movies[0];
 
@@ -142,7 +140,6 @@ async function getTrendingMoviesPreview() {
   const movieTrailer = dataMovieTrailer.results;
 
   const { data: movieDetails } = await api("/movie/" + movieTop.id);
-  console.log(movieDetails);
 
   movieTopPreview_details.innerHTML = "";
   movieTopPreview_video.innerHTML = "";
@@ -234,9 +231,9 @@ async function getProvidersMoviesPreview() {
   );
 
   providersMoviesPreview.innerHTML = ""; //Cuando hagas lo de proveedores comenta esta linea
-  providersPreview_movieList.innerHTML = "";
+  //providersPreview_movieList.innerHTML = "";
 
-  createContainerProvidersMovies(providersPreview_movieList, movies);
+  //createContainerProvidersMovies(providersPreview_movieList, movies);
 }
 
 /*PROVEEDORES MOSTRADA DE FORMA GENERAL*/
@@ -247,6 +244,168 @@ async function getProvidersMovies() {
   genericSection.innerHTML = "";
 
   createContainerGenericForMovies(movies, { provider: true });
+}
+
+/*--------------------------------------------------*/
+/*------------------DETALLES DE PELICULA------------------*/
+async function getDetailsMovie(id) {
+  const { data: movieDetalles } = await api("movie/" + id);
+  const { data: movieTrailer } = await api("movie/" + id + "/videos");
+  const infoTrailer = movieTrailer.results[0];
+  const { data: movieCredits } = await api("movie/" + id + "/credits");
+
+  movieDetails.innerHTML = "";
+  movieVideo.innerHTML = "";
+  moviePosters.innerHTML = "";
+  movieIndustry.innerHTML = "";
+
+  createContainerMovieDetails(movieDetalles, infoTrailer, movieCredits);
+}
+
+function createContainerMovieDetails(movie, trailer, creditos) {
+  /*DETALLES DE PELICULA*/
+  const title = document.createElement("h2");
+  title.classList.add("movieDetail-details--title");
+  title.innerText = movie.title;
+
+  const listCtgStar = document.createElement("div");
+  listCtgStar.classList.add("movieDetail-details--category-star");
+  const listCtg = document.createElement("ol");
+  listCtg.classList.add("movieDetail-details--category");
+  movie.genres.forEach((category) => {
+    const ctg = document.createElement("li");
+    ctg.innerText = category.name;
+    listCtg.appendChild(ctg);
+  });
+  const star = document.createElement("h3");
+  star.classList.add("movieDetail-details--star");
+  star.innerText = "⭐" + movie.vote_average;
+  listCtgStar.appendChild(listCtg);
+  listCtgStar.appendChild(star);
+
+  const movieDate = document.createElement("h3");
+  movieDate.classList.add("movieDetail-details--date");
+  const movieSpanDate = document.createElement("span");
+  movieSpanDate.innerText = movie.release_date;
+  movieDate.innerText = "Lanzamiento: ";
+  movieDate.appendChild(movieSpanDate);
+
+  const movieDuration = document.createElement("h3");
+  movieDuration.classList.add("movieDetail-details--duration");
+  const movieSpanDuration = document.createElement("span");
+  movieSpanDuration.innerText = movie.runtime + " minutos";
+  movieDuration.innerText = "Duracion: ";
+  movieDuration.appendChild(movieSpanDuration);
+
+  const movieLang = document.createElement("h3");
+  movieLang.classList.add("movieDetail-details--languages");
+  const movieSpanLang = document.createElement("span");
+  let idiomas = "";
+  movie.spoken_languages.forEach((lang, index) => {
+    if (index + 1 == movie.spoken_languages.length) {
+      idiomas = idiomas + lang.english_name;
+    } else {
+      idiomas = idiomas + lang.english_name + ", ";
+    }
+  });
+  movieSpanLang.innerText = idiomas;
+  movieLang.innerText = "Idiomas: ";
+  movieLang.appendChild(movieSpanLang);
+
+  const movieDescrip = document.createElement("h3");
+  movieDescrip.classList.add("movieDetail-details--description");
+  movieDescrip.innerText = movie.overview;
+
+  const link = document.createElement("a");
+  link.href = movie.homepage;
+  link.target = "_blank";
+  link.classList.add("movieDetail-details--link");
+  link.innerText = "Ver pelicula";
+
+  movieDetails.appendChild(title);
+  movieDetails.appendChild(listCtgStar);
+  movieDetails.appendChild(movieDate);
+  movieDetails.appendChild(movieDuration);
+  movieDetails.appendChild(movieLang);
+  movieDetails.appendChild(movieDescrip);
+  movieDetails.appendChild(link);
+
+  /*TRAILER DE PELICULA*/
+  const video = document.createElement("iframe");
+  video.src = `https://www.youtube.com/embed/${trailer.key}?autoplay=0&amp;loop=1&amp;playlist=${trailer.key}&amp;controls=1&amp;vq=hd1080&amp;rel=0&amp;iv_load_policy=3&amp;fs=0&amp;color=white&amp;disablekb=1&amp;modestbranding=1&amp;mute=1`;
+  video.title = "YouTube video player";
+  video.frameBorder = "0";
+  video.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+
+  movieVideo.appendChild(video);
+
+  /*POSTER FRONTAL*/
+  const imgFront = document.createElement("img");
+  imgFront.src = "https://image.tmdb.org/t/p/w500/" + movie.poster_path;
+  imgFront.alt = "Imagen de portada de la pelicula";
+  imgFront.classList.add("movieDetails-imgFront");
+
+  moviePosters.appendChild(imgFront);
+
+  /*INDUSTRIA*/
+  const titleCred = document.createElement("h3");
+  titleCred.classList.add("industry--credits");
+  titleCred.innerText = "Creditos";
+
+  const listDirectors = document.createElement("div");
+  listDirectors.classList.add("movieDetail-directors");
+  const directTitle = document.createElement("h3");
+  directTitle.classList.add("directors-header");
+  directTitle.innerText = "Directores";
+  const listDirect = document.createElement("ol");
+  listDirect.classList.add("directors-listDirectors");
+
+  listDirectors.appendChild(directTitle);
+  listDirectors.appendChild(listDirect);
+
+  const listProducer = document.createElement("div");
+  listProducer.classList.add("movieDetail-productors");
+  const prodTitle = document.createElement("h3");
+  prodTitle.classList.add("productors-header");
+  prodTitle.innerText = "Directores";
+  const listProd = document.createElement("ol");
+  listProd.classList.add("productors-listProductors");
+
+  listProducer.appendChild(prodTitle);
+  listProducer.appendChild(listProd);
+
+  creditos.crew.forEach((person) => {
+    if (person.job == "Producer") {
+      const productor = document.createElement("li");
+      productor.innerText = person.name;
+      listProd.appendChild(productor);
+    }
+
+    if (person.job == "Director") {
+      const director = document.createElement("li");
+      director.innerText = person.name;
+      listDirect.appendChild(director);
+    }
+  });
+
+  const imgInd = document.createElement("img");
+  imgInd.src =
+    "https://image.tmdb.org/t/p/w300/" +
+    movie.production_companies[0].logo_path;
+  imgInd.alt = "Logo de la industria";
+  imgInd.classList.add("industry-logo");
+
+  const imgTras = document.createElement("img");
+  imgTras.src = "https://image.tmdb.org/t/p/w500/" + movie.backdrop_path;
+  imgTras.alt = "Imagen trasera de la pelicula";
+  imgTras.classList.add("movieDetails-imgBack");
+
+  movieIndustry.appendChild(titleCred);
+  movieIndustry.appendChild(listDirectors);
+  movieIndustry.appendChild(listProducer);
+  movieIndustry.appendChild(imgInd);
+  movieIndustry.appendChild(imgTras);
 }
 
 /*--------------------------------------------------*/

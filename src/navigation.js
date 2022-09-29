@@ -87,6 +87,8 @@ function homePage() {
 
   genericSection.classList.add("inactive");
 
+  movieDetail.classList.add("inactive");
+
   getTrendingMoviesPreview();
   //getMovieTopPreview();
   getCategoriesMovies();
@@ -105,6 +107,7 @@ function searchPage() {
   popularMoviesPreview.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
   genericSection.classList.remove("inactive");
+  movieDetail.classList.add("inactive");
 
   const query = location.hash.split("=")[1];
   getMoviesBySearch(query);
@@ -120,6 +123,7 @@ function categoriesPage() {
   popularMoviesPreview.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
   genericSection.classList.remove("inactive");
+  movieDetail.classList.add("inactive");
 
   let [idCategory, nameCategory] = location.hash.split("=")[1].split("-");
   //o => %C3%B3  //e => %C3%A9  //i => %C3%AD  //u => %C3%BA
@@ -152,6 +156,7 @@ function trendsPage() {
   popularMoviesPreview.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
   genericSection.classList.remove("inactive");
+  movieDetail.classList.add("inactive");
 
   getTrendingMovies();
 
@@ -168,6 +173,7 @@ function topRatedPage() {
   popularMoviesPreview.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
   genericSection.classList.remove("inactive");
+  movieDetail.classList.add("inactive");
 
   getTopRatedMovies();
 }
@@ -182,6 +188,7 @@ function popularPage() {
   popularCarousel.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
   genericSection.classList.remove("inactive");
+  movieDetail.classList.add("inactive");
 
   getPopularMovies();
 }
@@ -196,6 +203,7 @@ function providersPage() {
   providersBtn.classList.add("inactive");
   providersCarousel.classList.add("inactive");
   genericSection.classList.remove("inactive");
+  movieDetail.classList.add("inactive");
 
   getProvidersMovies();
 }
@@ -209,4 +217,8 @@ function movieDetailsPage() {
   popularMoviesPreview.classList.add("inactive");
   providersMoviesPreview.classList.add("inactive");
   genericSection.classList.add("inactive");
+  movieDetail.classList.remove("inactive");
+
+  const idMovie = location.hash.split("=")[1];
+  getDetailsMovie(idMovie);
 }
