@@ -495,12 +495,7 @@ function createContainerMovieDetails(
       "https://image.tmdb.org/t/p/w300/" + movSimilar.poster_path
     );
 
-    const nameActor = document.createElement("h3");
-    nameActor.classList.add("movie-star");
-    nameActor.innerText = movSimilar.title;
-
     movie_container.appendChild(imgMS);
-    movie_container.appendChild(nameActor);
     movieMSPreview.appendChild(movie_container);
   });
 
@@ -523,12 +518,7 @@ function createContainerMovieDetails(
           "https://image.tmdb.org/t/p/w300/" + movRec.poster_path
         );
 
-        const nameMR = document.createElement("h3");
-        nameMR.classList.add("movie-star");
-        nameMR.innerText = movRec.title;
-
         movie_container.appendChild(imgMR);
-        movie_container.appendChild(nameMR);
         movieMRPreview.appendChild(movie_container);
       }
     });
