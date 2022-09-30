@@ -950,6 +950,7 @@ img.movieDetails-imgBack {
 
 img.movieDetails-imgFront {
   height: 100%;
+  width: 100%;
 }
 
 /*-----D-E-T-A-L-L-E-S----S-E-C-C-I-O-N--3----*/
@@ -1079,6 +1080,31 @@ img.movieDetails-imgFront {
 
   #movieTopPreview {
     display: none;
+  }
+
+  .movieDetail-video {
+    display: none;
+  }
+
+  .movieDetail-details-video {
+    padding: 25px;
+  }
+
+  .movieDetail-details {
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .movieDetail-poster {
+    height: 450px;
+    padding: 0 20px;
+  }
+
+  .movieDetails-actors-header,
+  .movieDetails-moviesSimilar-header,
+  .movieDetails-moviesRecom-header {
+    justify-content: center;
+    gap: 10px;
   }
 }
 
