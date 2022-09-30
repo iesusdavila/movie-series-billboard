@@ -302,6 +302,7 @@ input::placeholder {
   color: var(--color-letters);
   padding: 12px;
   border-radius: 8px;
+  margin: 5px 0;
   background-image: linear-gradient(
     to bottom,
     #181717,
@@ -764,6 +765,15 @@ DENTRO DE LA SECCION DE DETALLES DE PELICULA*/
   margin-right: 25px;
 }
 
+.movieDetail-details-withoutTrailer {
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  width: 50%;
+  /* height: auto;
+  margin-right: 25px; */
+}
+
 /*ESTRUCTURA GENERAL DEL TITULO DE LA PELICULA*/
 .movieDetail-details--title {
   text-align: center;
@@ -829,6 +839,7 @@ DENTRO DE LA SECCION DE DETALLES DE PELICULA*/
   color: var(--color-letters);
   padding: 12px;
   border-radius: 8px;
+  margin: 5px 0;
   background-image: linear-gradient(
     to bottom,
     #181717,

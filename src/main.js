@@ -359,29 +359,36 @@ function createContainerMovieDetails(
   movieDescrip.classList.add("movieDetail-details--description");
   movieDescrip.innerText = movie.overview;
 
-  const link = document.createElement("a");
-  link.href = movie.homepage;
-  link.target = "_blank";
-  link.classList.add("movieDetail-details--link");
-  link.innerText = "Ver pelicula";
-
   movieDetails.appendChild(title);
   movieDetails.appendChild(listCtgStar);
   movieDetails.appendChild(movieDate);
   movieDetails.appendChild(movieDuration);
   movieDetails.appendChild(movieLang);
   movieDetails.appendChild(movieDescrip);
-  movieDetails.appendChild(link);
+
+  if (movie.homepage) {
+    const link = document.createElement("a");
+    link.href = movie.homepage;
+    link.target = "_blank";
+    link.classList.add("movieDetail-details--link");
+    link.innerText = "Reproducir Pelicula";
+    movieDetails.appendChild(link);
+  }
 
   /*TRAILER DE PELICULA*/
-  const video = document.createElement("iframe");
-  video.src = `https://www.youtube.com/embed/${trailer.key}?autoplay=0&amp;loop=1&amp;playlist=${trailer.key}&amp;controls=1&amp;vq=hd1080&amp;rel=0&amp;iv_load_policy=3&amp;fs=0&amp;color=white&amp;disablekb=1&amp;modestbranding=1&amp;mute=1`;
-  video.title = "YouTube video player";
-  video.frameBorder = "0";
-  video.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  if (trailer) {
+    const video = document.createElement("iframe");
+    video.src = `https://www.youtube.com/embed/${trailer.key}?autoplay=0&amp;loop=1&amp;playlist=${trailer.key}&amp;controls=1&amp;vq=hd1080&amp;rel=0&amp;iv_load_policy=3&amp;fs=0&amp;color=white&amp;disablekb=1&amp;modestbranding=1&amp;mute=1`;
+    video.title = "YouTube video player";
+    video.frameBorder = "0";
+    video.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
 
-  movieVideo.appendChild(video);
+    movieDetails.classList.remove("movieDetail-details-withoutTrailer");
+    movieVideo.appendChild(video);
+  } else {
+    movieDetails.classList.add("movieDetail-details-withoutTrailer");
+  }
 
   /*POSTER FRONTAL*/
   const imgFront = document.createElement("img");
@@ -498,29 +505,36 @@ function createContainerMovieDetails(
   });
 
   /*PELICULAS RECOMENDADAS*/
-  moviesRecome.forEach((movRec) => {
-    const movie_container = document.createElement("div");
-    movie_container.classList.add("movie-container");
-    movie_container.addEventListener("click", () => {
-      location.hash = "#movie=" + movRec.id;
+  if (moviesRecome.length !== 0) {
+    movieDetailsMovRec.classList.remove("inactive");
+    moviesRecome.forEach((movRec) => {
+      const movie_container = document.createElement("div");
+      movie_container.classList.add("movie-container");
+      movie_container.addEventListener("click", () => {
+        location.hash = "#movie=" + movRec.id;
+      });
+
+      if (movRec.poster_path) {
+        const imgMR = document.createElement("img");
+        imgMR.classList.add("movie-img");
+        imgMR.alt = movRec.title;
+        imgMR.setAttribute(
+          "src",
+          "https://image.tmdb.org/t/p/w300/" + movRec.poster_path
+        );
+
+        const nameMR = document.createElement("h3");
+        nameMR.classList.add("movie-star");
+        nameMR.innerText = movRec.title;
+
+        movie_container.appendChild(imgMR);
+        movie_container.appendChild(nameMR);
+        movieMRPreview.appendChild(movie_container);
+      }
     });
-
-    const imgMR = document.createElement("img");
-    imgMR.classList.add("movie-img");
-    imgMR.alt = movRec.title;
-    imgMR.setAttribute(
-      "src",
-      "https://image.tmdb.org/t/p/w300/" + movRec.poster_path
-    );
-
-    const nameMR = document.createElement("h3");
-    nameMR.classList.add("movie-star");
-    nameMR.innerText = movRec.title;
-
-    movie_container.appendChild(imgMR);
-    movie_container.appendChild(nameMR);
-    movieMRPreview.appendChild(movie_container);
-  });
+  } else {
+    movieDetailsMovRec.classList.add("inactive");
+  }
 }
 
 /*--------------------------------------------------*/
