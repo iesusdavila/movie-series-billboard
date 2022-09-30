@@ -741,6 +741,10 @@ function createContainerGenericForMovies(
 /*CREACION DEL MOVIMIENTO DEL CARRUSEL*/
 
 function Move(direc, sectionPreview, sectionCarousel, movieContainerWidth) {
+  if (movieDetailsMovRec.clientWidth < 768) {
+    movieContainerWidth = movieContainerWidth * 0.5;
+  }
+
   const sectionPreviewWidth = sectionPreview.offsetWidth;
   const sectionCarouselWidth = sectionCarousel.offsetWidth;
   let verf = 0;
