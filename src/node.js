@@ -145,6 +145,12 @@ const movieIndustry = document.querySelector(".movieDetail-industry");
 const movieDetailsActors = document.querySelector(".movieDetails-actors");
 const movieActHeader = document.querySelector(".movieDetails-actors-header");
 const movieActCarousel = document.querySelector(".actorsCarousel");
+const actorsPreview = document.querySelector(".movieDetails-actors-movieList");
+const actorsContainer = document.querySelectorAll(
+  ".movieDetails-actors-movieList .movie-container"
+);
+const actorsArrowLeft = document.querySelector("#actorArrowLeft");
+const actorsArrowRight = document.querySelector("#actorArrowRight");
 
 /*PELICULAS SIMILARES*/
 const movieDetailsMovSim = document.querySelector(
@@ -154,6 +160,14 @@ const movieMSHeader = document.querySelector(
   ".movieDetails-moviesSimilar-header"
 );
 const movieMSCarousel = document.querySelector(".moviesSimilarCarousel");
+const movieMSPreview = document.querySelector(
+  ".movieDetails-moviesSimilar-movieList"
+);
+const movieMSContainer = document.querySelectorAll(
+  ".movieDetails-moviesSimilar-movieList .movie-container"
+);
+const movieSimArrowLeft = document.querySelector("#movSimArrowLeft");
+const movieSimArrowRight = document.querySelector("#movSimArrowRight");
 
 /*PELICULAS RECOMENDADAS*/
 const movieDetailsMovRec = document.querySelector(".movieDetails-moviesRecom");
@@ -161,3 +175,11 @@ const movieMRHeader = document.querySelector(
   ".movieDetails-moviesRecom-header"
 );
 const movieMRCarousel = document.querySelector(".moviesRecomCarousel");
+const movieMRPreview = document.querySelector(
+  ".movieDetails-moviesRecom-movieList"
+);
+const movieMRContainer = document.querySelectorAll(
+  ".movieDetails-moviesRecom-movieList .movie-container"
+);
+const movieRecArrowLeft = document.querySelector("#moviRecArrowLeft");
+const movieRecArrowRight = document.querySelector("#moviRecArrowRight");

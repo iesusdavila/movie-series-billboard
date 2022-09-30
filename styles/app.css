@@ -1042,6 +1042,17 @@ img.movieDetails-imgFront {
   height: 25px;
 }
 
+.actors-name {
+  position: absolute;
+  bottom: 0;
+  right: 18px;
+  color: var(--color-letters);
+  background-color: var(--color-background);
+  border-radius: 20px 0 8px 0;
+  padding: 3px 9px;
+  opacity: 0.95;
+}
+
 /*--------------------------------------------------*/
 /*------------------MEDIA QUERIES------------------*/
 /*LISTA DE CATEGORIAS*/

@@ -20,6 +20,12 @@ const topMovContWidth = topMovieContainer[0].offsetWidth * 2;
 const popularMovContWidth = popularMovieContainer[0].offsetWidth * 2;
 /*ANCHO EN EL CARRUSEL DE PROVEEDORES*/
 const providerMovContWidth = providersMovieContainer[0].offsetWidth * 2;
+/*ANCHO EN EL CARRUSEL DE ACTORES*/
+const actorsContWidth = actorsContainer[0].offsetWidth * 2;
+/*ANCHO EN EL CARRUSEL DE PELICULAS SIMILARES*/
+const movSimContWidth = movieMSContainer[0].offsetWidth * 2;
+/*ANCHO EN EL CARRUSEL DE PELICULAS RECOMENDADAS*/
+const movRecContWidth = movieMRContainer[0].offsetWidth * 2;
 
 /*--------------------------------------------------*/
 /*------------------BOTONES DEL CARRUSEL------------------*/
@@ -46,6 +52,24 @@ providersArrowLeft.onclick = () =>
   Move(1, providersPreview, providersCarousel, providerMovContWidth);
 providersArrowRight.onclick = () =>
   Move(2, providersPreview, providersCarousel, providerMovContWidth);
+
+/*ACCION DE BOTONES EN EL CARRUSEL DE ACTORES*/
+actorsArrowLeft.onclick = () =>
+  Move(1, actorsPreview, movieActCarousel, actorsContWidth);
+actorsArrowRight.onclick = () =>
+  Move(2, actorsPreview, movieActCarousel, actorsContWidth);
+
+/*ACCION DE BOTONES EN EL CARRUSEL DE PELICULAS SIMILARES*/
+movieSimArrowLeft.onclick = () =>
+  Move(1, movieMSPreview, movieMSCarousel, movSimContWidth);
+movieSimArrowRight.onclick = () =>
+  Move(2, movieMSPreview, movieMSCarousel, movSimContWidth);
+
+/*ACCION DE BOTONES EN EL CARRUSEL DE PELICULAS RECOMENDADAS*/
+movieRecArrowLeft.onclick = () =>
+  Move(1, movieMRPreview, movieMRCarousel, movRecContWidth);
+movieRecArrowRight.onclick = () =>
+  Move(2, movieMRPreview, movieMRCarousel, movRecContWidth);
 
 /*--------------------------------------------------*/
 /*------------------BUSQUEDAS------------------*/
@@ -253,16 +277,35 @@ async function getDetailsMovie(id) {
   const { data: movieTrailer } = await api("movie/" + id + "/videos");
   const infoTrailer = movieTrailer.results[0];
   const { data: movieCredits } = await api("movie/" + id + "/credits");
+  const { data: movieSimilar } = await api("movie/" + id + "/similar");
+  const movSimResults = movieSimilar.results;
+  const { data: movieRecom } = await api("movie/" + id + "/recommendations");
+  const movRecResults = movieRecom.results;
 
   movieDetails.innerHTML = "";
   movieVideo.innerHTML = "";
   moviePosters.innerHTML = "";
   movieIndustry.innerHTML = "";
+  actorsPreview.innerHTML = "";
+  movieMSPreview.innerHTML = "";
+  movieMRPreview.innerHTML = "";
 
-  createContainerMovieDetails(movieDetalles, infoTrailer, movieCredits);
+  createContainerMovieDetails(
+    movieDetalles,
+    infoTrailer,
+    movieCredits,
+    movSimResults,
+    movRecResults
+  );
 }
 
-function createContainerMovieDetails(movie, trailer, creditos) {
+function createContainerMovieDetails(
+  movie,
+  trailer,
+  creditos,
+  moviesSimilar,
+  moviesRecome
+) {
   /*DETALLES DE PELICULA*/
   const title = document.createElement("h2");
   title.classList.add("movieDetail-details--title");
@@ -406,6 +449,78 @@ function createContainerMovieDetails(movie, trailer, creditos) {
   movieIndustry.appendChild(listProducer);
   movieIndustry.appendChild(imgInd);
   movieIndustry.appendChild(imgTras);
+
+  /*ACTORES*/
+  creditos.cast.slice(0, 20).forEach((person) => {
+    const movie_container = document.createElement("div");
+    movie_container.classList.add("movie-container");
+
+    const imgActor = document.createElement("img");
+    imgActor.classList.add("movie-img");
+    imgActor.alt = person.name;
+    if (person.profile_path) {
+      imgActor.setAttribute(
+        "src",
+        "https://image.tmdb.org/t/p/w300/" + person.profile_path
+      );
+      const nameActor = document.createElement("h3");
+      nameActor.classList.add("actors-name");
+      nameActor.innerText = person.name;
+      movie_container.appendChild(imgActor);
+      movie_container.appendChild(nameActor);
+      actorsPreview.appendChild(movie_container);
+    }
+  });
+
+  /*PELICULAS SIMILARES*/
+  moviesSimilar.forEach((movSimilar) => {
+    const movie_container = document.createElement("div");
+    movie_container.classList.add("movie-container");
+    movie_container.addEventListener("click", () => {
+      location.hash = "#movie=" + movSimilar.id;
+    });
+
+    const imgMS = document.createElement("img");
+    imgMS.classList.add("movie-img");
+    imgMS.alt = movSimilar.title;
+    imgMS.setAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w300/" + movSimilar.poster_path
+    );
+
+    const nameActor = document.createElement("h3");
+    nameActor.classList.add("movie-star");
+    nameActor.innerText = movSimilar.title;
+
+    movie_container.appendChild(imgMS);
+    movie_container.appendChild(nameActor);
+    movieMSPreview.appendChild(movie_container);
+  });
+
+  /*PELICULAS RECOMENDADAS*/
+  moviesRecome.forEach((movRec) => {
+    const movie_container = document.createElement("div");
+    movie_container.classList.add("movie-container");
+    movie_container.addEventListener("click", () => {
+      location.hash = "#movie=" + movRec.id;
+    });
+
+    const imgMR = document.createElement("img");
+    imgMR.classList.add("movie-img");
+    imgMR.alt = movRec.title;
+    imgMR.setAttribute(
+      "src",
+      "https://image.tmdb.org/t/p/w300/" + movRec.poster_path
+    );
+
+    const nameMR = document.createElement("h3");
+    nameMR.classList.add("movie-star");
+    nameMR.innerText = movRec.title;
+
+    movie_container.appendChild(imgMR);
+    movie_container.appendChild(nameMR);
+    movieMRPreview.appendChild(movie_container);
+  });
 }
 
 /*--------------------------------------------------*/
